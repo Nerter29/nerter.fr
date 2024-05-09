@@ -1,0 +1,232 @@
+@font-face {
+    font-family: 'Renogare', sans-serif;
+    src: url('assets/Renogare.ttf') format('truetype');
+}
+
+@media (max-width: 900px) {
+    
+    .metronome-container{
+        margin: 0px auto;
+    }
+    .geometrydeath-container{
+        margin: -63px auto;
+
+    }
+
+    .main-container {
+        flex-direction: column; /   
+    }
+}
+
+@media (min-width: 900px) {
+    .metronome-container{
+        margin: -50px 0 0 50px;
+    }
+    .geometrydeath-container{
+        margin: -63px 50px 0 0 ;
+    }
+}
+
+body {
+    font-family: 'Renogare', sans-serif;
+    background-color: #222;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+
+h1 {
+    color: #CCC;
+    font-size: 28px;
+    text-align: center;
+}
+
+h2 {
+    color: #CCC;
+    font-size: 22px;
+    text-align: center;
+}
+
+.banner {
+    background-color: #181818;
+    color: #fff;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logo-image {
+    max-width: 100%;
+    height: auto;
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+.main-container {
+    max-width: 100%;
+    width: auto;
+    margin: 0 center;
+    /*border-style: solid;*/
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center; /* Centrer horizontalement les conteneurs enfants */
+
+
+    
+}
+
+.geometrydeath-container {
+    max-width: 100%;
+    min-width: 250px;
+    width: 280px;
+
+    height: 600px;
+    /*border-style: solid;*/
+}
+
+.metronome-container {
+    max-width: 100%;
+    min-width: 250px;
+    width: 280px;
+
+    height: 600px;
+    /*border-style: solid;*/
+}
+
+.presentation-image {
+    max-width: 100%;
+    height: auto;
+    width: 280px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+.tutoriel-image {
+    max-width: 100%;
+    height: fit-content;
+    width: fit-content;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.download-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    height: 60px;
+    width: 150px;
+    margin: 20px 0 0 13px;
+    font-family: 'Renogare', sans-serif;
+    font-size: 20px;
+    text-align: center;
+
+    position: absolute;
+}
+
+
+.tutoriel-button {
+    background-color: #4c8caf;
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 45px;
+    width: 90px;
+    padding: 4px;
+    margin: 27px 0 0 173px;
+    font-family: 'Renogare', sans-serif;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 12px;
+
+    position: absolute;
+}
+
+
+
+.download-button:hover {
+    box-shadow: none;
+    color: white;}
+.download-button::before {
+    border-color: 222;
+    border-radius: 10px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 97%;
+    height: 93%;
+    border: 3px solid #1b1b20;
+    transition: opacity 0.3s, border 0.3s; }
+.download-button:hover::before {
+    opacity: 1; }
+.download-button::after {
+    border-color: 222;
+    border-radius: 10px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 97%;
+    height: 92%;
+    background-color: transparent;
+    border: 3px solid #e6e6e6;
+    opacity: 0;
+    transform: scaleX(1.1) scaleY(1.3);
+    transition: transform 0.3s, opacity 0.3s; }
+.download-button:hover::after {
+    opacity: 1;
+    transform: scaleX(1) scaleY(1); }
+
+
+
+
+
+
+.tutoriel-button:hover {
+    box-shadow: none;
+    color: white; }
+.tutoriel-button::before {
+    border-color: 222;
+    border-radius: 10px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 96%;
+    height: 90%;
+    border: 3px solid #1b1b20;
+    transition: opacity 0.3s, border 0.3s; }
+.tutoriel-button:hover::before {
+    opacity: 1; }
+.tutoriel-button::after {
+    border-color: 222;
+    border-radius: 10px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 96%;
+    height: 89%;
+    background-color: transparent;
+    border: 3px solid #e6e6e6;
+    opacity: 0;
+    transform: scaleX(1.1) scaleY(1.3);
+    transition: transform 0.3s, opacity 0.3s; }
+.tutoriel-button:hover::after {
+    opacity: 1;
+    transform: scaleX(1) scaleY(1); }
+
+
+
+
+
+  
+
