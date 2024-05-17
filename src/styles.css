@@ -1,6 +1,9 @@
 @font-face {
     font-family: 'Renogare', sans-serif;
-    src: url('assets/Renogare.ttf') format('truetype');
+    src: 
+    url('assets/Renogare.woff2') format('woff2'), /* Super modern browsers */
+    url('assets/Renogare.woff') format('woff'), /* Modern browsers */
+    url('assets/Renogare.ttf') format('truetype'), /* Safari, Android, iOS */;
 }
 
 @media (max-width: 900px) {
@@ -106,6 +109,15 @@ h2 {
     border-radius: 20px;
 }
 
+.icon-image {
+    max-width: 100%;
+    height: auto;
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
 .tutoriel-image {
     max-width: 100%;
     height: fit-content;
@@ -150,6 +162,13 @@ h2 {
 }
 
 
+.geometrydeath-icon-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
+}
+
+
 
 .download-button:hover {
     box-shadow: none;
@@ -163,7 +182,7 @@ h2 {
     left: 0;
     width: 97%;
     height: 93%;
-    border: 3px solid #1b1b20;
+    border: 3px solid #222;
     transition: opacity 0.3s, border 0.3s; }
 .download-button:hover::before {
     opacity: 1; }
@@ -202,7 +221,7 @@ h2 {
     left: 0;
     width: 96%;
     height: 90%;
-    border: 3px solid #1b1b20;
+    border: 3px solid #222;
     transition: opacity 0.3s, border 0.3s; }
 .tutoriel-button:hover::before {
     opacity: 1; }
