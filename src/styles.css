@@ -107,7 +107,6 @@ h2 {
 .gitlab-image {
     max-width: 100%;
     height: auto;
-    display: block;
     margin: 10px 10px 0 0;
     width: 50px;
     transition: opacity 0.5s ease;
@@ -182,6 +181,7 @@ h2 {
 .icon-container {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     margin: 90px 15px;
 }
 
@@ -198,7 +198,6 @@ h2 {
     max-width: 100%;
     height: auto;
     width: 30px;
-    display: block;
     margin: 0 7px;
 }
 
