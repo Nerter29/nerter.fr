@@ -9,15 +9,32 @@
 @media (max-width: 900px) {
     
     .metronome-container{
-        margin: 0px auto;
+        margin: 20px auto;
     }
     .geometrydeath-container{
         margin: -61px auto;
 
     }
-
     .main-container {
         flex-direction: column; /   
+    }
+
+    .banner {
+        height: 35px;
+    }
+    .gitlab-image-container {
+        margin-left: -16px;
+        width: 30px; 
+        height: 30px; 
+        bottom: 6px;
+    }
+    .logo-image {
+        width: 280px;
+        margin: -45px 0 0 32px;
+    }
+    .gitlab-text {
+        top: 40px; 
+        font-size: 16px;
     }
 }
 
@@ -28,6 +45,27 @@
     .geometrydeath-container{
         margin: -61px 50px 0 0 ;
     }
+
+
+    .banner {
+        height: 60px;
+    }
+    .gitlab-image-container {
+        margin-left: 10px;
+        width: 50px; 
+        height: 50px; 
+        bottom: 5px;
+
+    }
+    .logo-image {
+        width: 380px;
+        margin: -64px auto;
+    }
+    .gitlab-text {
+        top: 60px; 
+        font-size: 24px;
+    }
+
 }
 
 body {
@@ -55,18 +93,62 @@ h2 {
 .banner {
     background-color: #181818;
     color: #fff;
-    padding: 20px;
+    padding: 30px;
     width: 100%;
-    box-sizing: border-box;
 }
+
 
 .logo-image {
     max-width: 100%;
     height: auto;
-    width: 300px;
     display: block;
-    margin: 0 auto;
 }
+
+.gitlab-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 10px 0 0;
+    width: 50px;
+    transition: opacity 0.5s ease;
+    position: absolute;
+}
+
+.gitlab-image-container {
+    position: relative;
+}
+
+.baw-image {
+    opacity: 1;
+}
+
+.colored-image {
+    opacity: 0;
+}
+
+.gitlab-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.gitlab-image-container:hover .baw-image {
+    opacity: 0;
+}
+
+.gitlab-image-container:hover .colored-image {
+    opacity: 1;
+}
+
+.gitlab-image-container:hover .gitlab-text {
+    opacity: 1;
+}
+
+
+
 
 .main-container {
     max-width: 100%;
@@ -77,9 +159,6 @@ h2 {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center; /* Centrer horizontalement les conteneurs enfants */
-
-
-    
 }
 
 .geometrydeath-container {
@@ -100,6 +179,12 @@ h2 {
     /*border-style: solid;*/
 }
 
+.icon-container {
+    display: flex;
+    align-items: center;
+    margin: 90px 15px;
+}
+
 .presentation-image {
     max-width: 100%;
     height: auto;
@@ -112,10 +197,9 @@ h2 {
 .icon-image {
     max-width: 100%;
     height: auto;
-    width: 100px;
+    width: 30px;
     display: block;
-    margin: 0 auto;
-    border-radius: 20px;
+    margin: 0 7px;
 }
 
 .tutoriel-image {
@@ -160,14 +244,6 @@ h2 {
 
     position: absolute;
 }
-
-
-.geometrydeath-icon-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px; 
-}
-
 
 
 .download-button:hover {
