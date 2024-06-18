@@ -8,15 +8,10 @@
 
 @media (max-width: 900px) {
     
-    .metronome-container{
-        margin: 20px auto;
-    }
-    .geometrydeath-container{
-        margin: -46px auto;
-
-    }
     .main-container {
-        flex-direction: column; /   
+        flex-direction: column;    
+        align-items: center;
+        justify-content: center;
     }
 
     .banner {
@@ -39,13 +34,10 @@
 }
 
 @media (min-width: 900px) {
-    .metronome-container{
-        margin: -35px 0 0 50px;
-    }
-    .geometrydeath-container{
-        margin: -46px 50px 0 0 ;
-    }
 
+    .project-container{
+        padding: 0 50px 0 50px;
+    }
 
     .banner {
         height: 95px;
@@ -147,32 +139,25 @@ h2 {
 
 
 
+
+
 .main-container {
     max-width: 100%;
-    width: fit-content;
-    margin: 0 auto;
-    /*border-style: solid;*/
+    height: fit-content;
+    margin: -30px auto ;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center; /* Centrer horizontalement les conteneurs enfants */
-}
 
-.geometrydeath-container {
-    max-width: 100%;
-    min-width: 250px;
-    width: 280px;
-
-    height: 600px;
     /*border-style: solid;*/
+
 }
 
-.metronome-container {
+.project-container {
     max-width: 100%;
     min-width: 250px;
     width: 280px;
-
     height: 600px;
+
     /*border-style: solid;*/
 }
 
