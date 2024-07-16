@@ -2,102 +2,67 @@
 <html lang="fr">
 <head>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYNJNTXFFJ"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-ZYNJNTXFFJ');
-    </script>
-    <!-- fin Google tag (gtag.js) -->
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-P2TSZMPW');</script>
-    <!-- End Google Tag Manager -->
-
 
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, , initial-scale=1.0">
     <title>Nerter Development</title>
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="main-styles.css" type="text/css">
     <link rel="icon" type="image/vnd.icon" href="assets/images/N_Logo_zoomed.ico">
 </head>
 
 <body>
 
-
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2TSZMPW"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-
-  <header class="banner">
-    <div class="gitlab-image-container">
-      <a href="https://gitlab.com/Nerter/nerter-development" target="_blank">
-        <img src="assets/images/gitlab-logo-baw.png" alt="image" class="gitlab-image baw-image">
-        <img src="assets/images/gitlab-logo-colored.png" alt="image" class="gitlab-image colored-image">
-      </a>
-      <div class="gitlab-text">Gitlab</div>
-    </div>
-
-    <a href="index.html" >
-      <img src="assets/images/logo.png" alt="image" class="logo-image">
-    </a>
-
-  </header>
-
+  <div id="banner-container"></div>
 
 
    <h1></h1>
    <div class="main-container">   
       <div class="project-container">
-        <h1><br>Geometry Death</h1>
-        <img src="assets/images/geometryDeathImageLessCroped.png" alt="" class="presentation-image" >
-
-        <button class="download-button" onclick="downloadFile('assets/downloadFiles/GeometryDeath-Windowed-v1.5.zip')">Télécharger</button>
-        <a href="zipfile-tuto.html" >
-          <button class="tutoriel-button">Tutoriel<br>d'Installation</button>
+        <a href="geometry-death.html">
+          <div class="presentation-image-container">
+            <img src="assets/images/geometryDeathImageLessCroped.png" alt="">
+          </div>
+          <h1>Geometry Death</h1>
         </a>
         <div class="icon-container">
-          <img src="assets/images/windows.png" alt="" class="icon-image" >
+          <img src="assets/images/windows-simple.png" alt="" class="icon-image" >
         </div>
       </div>
 
       <div class="project-container">
-        <h1>Metronome Programmable</h1>
-        <img src="assets/images/metronome_programmable_icon.png" alt="" class="presentation-image" >
-        <button class="download-button" onclick="downloadFile('assets/downloadFiles/Metronome Programmable.apk')">Télécharger</button>
-        <a href="metronome-tuto.html" >
-          <button class="tutoriel-button">Tutoriel<br>d'Installation</button>
-        </a>
-        <div class="icon-container">
-          <img src="assets/images/android.png" alt="" class="icon-image" >
-        </div>
+        <a href="metronome.html">
+          <div class="presentation-image-container">
+            <img src="assets/images/metronome_programmable_icon.png" alt="">
+          </div>
+          <h1>Metronome Programmable</h1>
+        </a>  
+          <div class="icon-container">
+            <img src="assets/images/android-simple.png" alt="" class="icon-image" >
+          </div>
+
       </div>
 
       <div class="project-container">
-        <h1>Sorting Algorithm Deluxe</h1>
-        <img src="assets/images/sortingAlgorithmImage.png" alt="" class="presentation-image" >
-        <button class="download-button" onclick="downloadFile('assets/downloadFiles/sortingAlgorithm-Deluxe.zip')">Télécharger</button>
-        <a href="zipfile-tuto.html" >
-          <button class="tutoriel-button">Tutoriel<br>d'Installation</button>
+        <a href="sorting.html">
+          <div class="presentation-image-container">
+            <img src="assets/images/sortingAlgorithmImage.png" alt="">
+          </div>
+          <h1>Sorting Algorithm Deluxe</h1>
         </a>
         <div class="icon-container">
-          <img src="assets/images/windows.png" alt="" class="icon-image" >
+          <img src="assets/images/windows-simple.png" alt="" class="icon-image" >
         </div>
       </div>
-
-
    </div>
-
-    <script src="main-page.js"></script>
 </body>
+<script src="logic.js"></script>
+<script>
+
+
+
+
+  
+ 
+</script>
 </html>

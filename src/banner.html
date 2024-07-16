@@ -1,0 +1,217 @@
+
+
+<div class="banner">
+
+      <a href="index.html" >
+        <img src="assets/images/logo.png" alt="image" class="logo-image">
+      </a>
+</div>
+<div class="home-image-container">
+  <a href="index.html" >
+    <img src="assets/images/home-icon-baw.png" alt="image" class="home-image baw-image-home" >
+    <img src="assets/images/home-icon-colored.png" alt="image" class="home-image colored-image-home" >
+  </a>
+  
+  <div class="home-text">Accueil</div>
+</div>
+
+
+<div class="gitlab-image-container">
+
+  <a href="https://gitlab.com/Nerter/nerter-development" target="_blank">
+    <img src="assets/images/gitlab-logo-baw.png" alt="image" class="gitlab-image baw-image-gitlab">
+    <img src="assets/images/gitlab-logo-colored.png" alt="image" class="gitlab-image colored-image-gitlab">
+  </a>
+  <div class="gitlab-text">Gitlab</div>
+</div>
+
+<style>
+
+  @media (max-width: 1000px) {
+    
+
+    .banner {
+        height: 90px;
+    }
+
+
+    .logo-image {
+        width: 220px;
+    }
+
+    .home-image-container {
+      width: 40px;
+      margin: -77px 20px 73px 12px;
+    }
+    .home-text {
+      top: 45px; 
+      font-size: 16px;
+      left: 50%;
+
+    }
+
+    .gitlab-image-container {
+      width: 35px; 
+      height: 35px; 
+      bottom: 6px;
+      margin: -137px 12px 50px auto;
+
+    }
+    .gitlab-text {
+    top: 45px; 
+    font-size: 16px;
+    }
+}
+
+@media (min-width: 1000px) {
+
+
+
+    .banner {
+        height: 110px;
+    }
+
+
+    .logo-image {
+        width: 350px;
+    }
+
+    .home-image-container {
+      width: 60px;
+      margin: -93px 20px 93px 30px;
+    }
+    .home-text {
+      top: 55px; 
+      font-size: 24px;
+      left: 40%;
+
+    }
+
+    .gitlab-image-container {
+      width: 50px; 
+      height: 50px; 
+      bottom: 5px;
+      margin: -180px 30px 50px auto;
+
+    }
+    .gitlab-text {
+        top: 60px; 
+        font-size: 24px;
+    }
+
+
+}
+
+.banner {
+  
+  background-color: #181818;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.logo-image {
+  max-width: 100%;
+  margin-left: auto;
+}
+
+
+
+
+
+
+.home-image-container {
+  position: relative;
+}
+
+.home-image{
+  max-width: 100%;
+  height: auto;
+  margin: 10px 10px 0 0;
+  width: 50px;
+  transition: opacity 0.5s ease;
+  position: absolute;
+}
+
+
+.baw-image-home {
+  opacity: 1;
+}
+
+.colored-image-home {
+  opacity: 0;
+}
+
+.home-text {
+  position: absolute;
+  transform: translateX(-50%);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.home-image-container:hover .baw-image-home {
+  opacity: 0;
+}
+
+.home-image-container:hover .colored-image-home {
+  opacity: 1;
+}
+
+.home-image-container:hover .home-text {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+.gitlab-image-container {
+  position: relative;
+}
+
+.gitlab-image {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 10px 0 0;
+  width: 50px;
+  transition: opacity 0.5s ease;
+  position: absolute;
+}
+
+.baw-image-gitlab {
+  opacity: 1;
+}
+
+.colored-image-gitlab {
+  opacity: 0;
+}
+
+.gitlab-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.gitlab-image-container:hover .baw-image-gitlab {
+  opacity: 0;
+}
+
+.gitlab-image-container:hover .colored-image-gitlab {
+  opacity: 1;
+}
+
+.gitlab-image-container:hover .gitlab-text {
+  opacity: 1;
+}
+</style>
+  
+
+  
