@@ -1,9 +1,7 @@
 @font-face {
-    font-family: 'Renogare', sans-serif;
+    font-family: 'Renogare';
     src: 
-    url('assets/Renogare.woff2') format('woff2'), /* Super modern browsers */
-    url('assets/Renogare.woff') format('woff'), /* Modern browsers */
-    url('assets/Renogare.ttf') format('truetype'), /* Safari, Android, iOS */;
+    url('assets/fonts/Renogare.ttf') format('truetype');
 }
 
 @media (max-width: 1000px) {
@@ -65,7 +63,7 @@
 
 }
 body {
-    font-family: 'Renogare', sans-serif;
+    font-family: 'Renogare';
     background-color: #222;
     margin: 0;
     padding: 0;
@@ -81,16 +79,22 @@ h1 {
     color: #CCC;
     font-size: 28px;
     text-align: center;
+    font-family: 'Renogare';
+
 }
 
 h2 {
     color: #CCC;
     font-size: 18px;
+    font-family: 'Renogare';
+
 }
 
 h3 {
     color: #808080;
     font-size: 18px;
+    font-family: 'Renogare';
+
 }
 
 
@@ -132,7 +136,7 @@ h3 {
     height: 70px;
     width: 200px;
     margin: 10px 0 0 5px;
-    font-family: 'Renogare', sans-serif;
+    font-family: 'Renogare';
     font-size: 26px;
     text-align: center;
 
@@ -149,7 +153,7 @@ h3 {
     width: 95px;
     padding: 4px;
     margin: 85px 0 0 5px;
-    font-family: 'Renogare', sans-serif;
+    font-family: 'Renogare';
     font-size: 12px;
     text-align: center;
     border-radius: 12px;
