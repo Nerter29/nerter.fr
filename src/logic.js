@@ -61,7 +61,7 @@ if(fileName == "geometry-death.html"){
   getLastUpdateDate("jeu");
 }
 else if(fileName == "metronome.html"){
-  getLastUpdateDate("appli");
+  getLastUpdateDate("Metronome");
 }
 else if(fileName == "sorting.html"){
   getLastUpdateDate("Sorting");
