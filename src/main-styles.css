@@ -14,16 +14,13 @@
     .project-container {
 
         width: 280px;
-        height: 450px;
     }
 }
 
 @media (min-width: 1000px) {
     .project-container{
         padding: 0 20px 0 20px;
-        height: 500px;
         width: 350px;
-
 
     }
 

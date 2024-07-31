@@ -57,8 +57,8 @@ function extractString(data, keyWord) {
 
 // Extraire le nom du fichier de l'URL
 let fileName = window.location.pathname.split('/').pop();
-if(fileName == "geometry-death.html"){
-  getLastUpdateDate("jeu");
+if(fileName == "shape-survivor.html"){
+  getLastUpdateDate("Shape");
 }
 else if(fileName == "metronome.html"){
   getLastUpdateDate("Metronome");
