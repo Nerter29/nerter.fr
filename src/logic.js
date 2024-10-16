@@ -21,7 +21,6 @@ async function getLastUpdateDate(projectId) {
 
   const outputDiv = document.getElementById('lastUpdateDate');
   outputDiv.textContent = `Dernière Mise à Jour : ${date}`;
-
 }
 
 function extractDate(data) {
