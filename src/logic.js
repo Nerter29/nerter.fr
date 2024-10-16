@@ -13,57 +13,39 @@ function downloadFile(filePath) {
     document.body.removeChild(link); 
 }
      
-async function getLastUpdateDate(keyWord) {
-  const projectId = '57722436';
+async function getLastUpdateDate(projectId) {
   const response = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/repository/commits`)
 
   const data = await response.json();
-  const result = extractString(data, keyWord);
+  const date = extractDate(data);
 
   const outputDiv = document.getElementById('lastUpdateDate');
-  outputDiv.textContent = `Dernière Mise à Jour : ${result}`;
+  outputDiv.textContent = `Dernière Mise à Jour : ${date}`;
 
 }
 
-function extractString(data, keyWord) {
+function extractDate(data) {
 
-  for (let h = 0; h < Object.getOwnPropertyNames(data).length; h++) {
-    const key = Object.keys(data)[h];  
-    const entry = data[key]; 
-    message =  entry.message
-
-    var j = 0;
-    var k = 0;
-    let isOnFirstLetter = true;
-    for (let i = 0; i < message.length; i++) {
-      if(j < keyWord.length){
-        if(message[i] == keyWord[j] && (i == k + 1 || isOnFirstLetter)){
-          isOnFirstLetter = false;
-          j++;
-          k = i;
-        }
-        else{
-          j=0;
-          isOnFirstLetter = true;
-        }
-      }
-      else{
-        let dateArray = entry.committed_date.substring(0, 10).split('-');
-        return dateArray[2] + '/' + dateArray[1] + '/' + dateArray[0];
-      }
-    }
-  }
+  const entry = data[0]; 
+  message =  entry.message
+  let dateArray = entry.committed_date.substring(0, 10).split('-');
+  return dateArray[2] + '/' + dateArray[1] + '/' + dateArray[0];
+  
 }
 
-// Extraire le nom du fichier de l'URL
+
 let fileName = window.location.pathname.split('/').pop();
 if(fileName == "shape-survivor.html"){
-  getLastUpdateDate("Shape");
+  getLastUpdateDate('61285052');
 }
 else if(fileName == "metronome.html"){
-  getLastUpdateDate("Metronome");
+  getLastUpdateDate('61286686');
 }
 else if(fileName == "sorting.html"){
-  getLastUpdateDate("Sorting");
+  getLastUpdateDate('61286493');
 }
+else if(fileName == "mandelbrot.html"){
+  getLastUpdateDate('62698256');
+}
+
 

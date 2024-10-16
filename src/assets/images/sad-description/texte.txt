@@ -1,1 +1,1 @@
-Triez des rectangles du plus petit au plus grand qui étaient au départ complètement désordonnés. Comprenez le fonctionnement de 9 méthodes de tri différentes, plus ou moins complexes et relaxez vous devant cette animation audio-visuelle reposante, parfaite après une dure journée.
+Triez des rectangles du plus petit au plus grand qui étaient au départ complètement désordonnés. Comprenez le fonctionnement de 9 méthodes de tri différentes, plus ou moins complexes et relaxez vous devant cette animation audio-visuelle reposante.
