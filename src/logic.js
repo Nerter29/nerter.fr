@@ -32,7 +32,6 @@ function extractDate(data) {
   
 }
 
-
 let fileName = window.location.pathname.split('/').pop();
 if(fileName == "shape-survivor.html"){
   getLastUpdateDate('61285052');
