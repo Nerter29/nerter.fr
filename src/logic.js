@@ -46,5 +46,8 @@ else if(fileName == "sorting.html"){
 else if(fileName == "mandelbrot.html"){
   getLastUpdateDate('62698256');
 }
+else if(fileName == "mazeGenerator.html"){
+  getLastUpdateDate('66064852');
+}
 
 
