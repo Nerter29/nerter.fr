@@ -135,12 +135,22 @@ h3 {
     width: 200px;
     margin: 10px 0 0 5px;
     font-family: 'Renogare';
-    font-size: 26px;
+    font-size: 24px;
     text-align: center;
+    line-height: 1.15;
 
     position: absolute;
 }
 
+
+.yellow{
+    background-color: #adaf4c;
+    margin: 85px 0 0 5px;
+    height: 55px;
+    width: 150px;
+    font-size: 20px;
+    border-radius: 10px;
+}
 
 .tutoriel-button {
     background-color: #4c8caf;
@@ -150,14 +160,25 @@ h3 {
     height: 45px;
     width: 95px;
     padding: 4px;
-    margin: 85px 0 0 5px;
+    margin: 90px 0 0 160px;
     font-family: 'Renogare';
     font-size: 12px;
     text-align: center;
     border-radius: 12px;
 
+.yellow{
+    background-color: #adaf4c;
+    margin: 85px 0 0 5px;
+    height: 55px;
+    width: 120px;
+    font-size: 16px;
+
+
+
+}
     position: absolute;
 }
+
 
 
 
@@ -208,8 +229,8 @@ h3 {
 }
 .icon-image {
     max-width: 100%;
-    height: auto;
-    width: 150px;
+    height: 40px;
+    margin-left: 20px ;
 }
 
 

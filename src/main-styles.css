@@ -12,16 +12,14 @@
         justify-content: center;
     }
     .project-container {
-
-        width: 260px;
+        width: 220px;
     }
 }
 
 @media (min-width: 1000px) {
     .project-container{
-        padding: 0 10px 0 10px;
-        width: 270px;
-
+        padding: 0 12px 0 12px;
+        width: 230px;
     }
 
 }
@@ -41,7 +39,7 @@ a {
 
 h1 {
     color: #CCC;
-    font-size: 26px;
+    font-size: 22px;
     text-align: center;
 
     font-family: 'Renogare';
@@ -67,7 +65,6 @@ h2 {
 
 .project-container {
     max-width: 100%;
-    min-width: 250px;
     margin: 30px 0 0 0 ;
     text-align: center;
     position: relative;
@@ -85,28 +82,21 @@ h2 {
 
     position: absolute;
     left: 5px;
-
-
 }
 
 .presentation-image-container {
     display: inline-block;
     overflow: hidden;
     border-radius: 10px;
-
-
   }
 
 .presentation-image-container img {
     max-width: 100%;
     height: auto;
-    width: 260px;
+    width: 100%;
     display: block;
     margin: 0 auto;
     transition: transform 0.25s ease;
-
-
-
 }
 
 .presentation-image-container img:hover {
@@ -115,8 +105,8 @@ h2 {
 
 .icon-image {
     max-width: 100%;
-    height: auto;
-    width: 30px;
+    height: 26px;
+    width: auto;
     margin: 0 7px;
 }
 
@@ -126,7 +116,6 @@ h2 {
     display: block;
     margin: 0 auto;
 }
-
 
 
 
