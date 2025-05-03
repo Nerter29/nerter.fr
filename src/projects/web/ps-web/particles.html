@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Particles Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/vnd.icon" href="../../../assets/images/N_Logo_zoomed.ico">
+  </head>
+  <div id="banner-container"></div>
+
+  <body>
+    <div class="window-frame">
+      <div class="settingsFrame", id="settingsFrame">
+        <div class="buttonFrame">
+          <button class="button big" onclick="createParticles()">Create</button>
+          <button class="button medium" onclick="resetParticles()">Reset</button>
+        </div>
+  
+        <div class="parameterFrame">
+          <div class = "underParameterFrame">
+            <h1>Base shape :</h1>
+  
+            <label class="checkbox-row">
+              <input type="checkbox" id="randomBox"class="exclusiveBox">
+              <span class="chackboxText">Random</span></label>
+            <label class="checkbox-row">
+              <input type="checkbox" id="lineBox"class="exclusiveBox">
+              <span class="chackboxText">Line</span>
+              <span class="chackboxInputText">Length</span><input type="text" class="line-input"></label>
+            <label class="checkbox-row">
+              <input type="checkbox" id="circleBox" class="exclusiveBox">
+              <span class="chackboxText">Circle</span>
+              <span class="chackboxInputText">Radius</span><input type="text" class="line-input"></label>
+            <label class="checkbox-row">
+              <input type="checkbox" id="spiralBox"class="exclusiveBox">
+              <span class="chackboxText">Spiral</span>
+              <span class="chackboxInputText">Radius</span><input type="text" class="line-input"></label>
+            <label class="checkbox-row">
+              <input type="checkbox" id="squareBox"class="exclusiveBox">
+              <span class="chackboxText">Square</span>
+              <span class="chackboxInputText">Length</span><input type="text" class="line-input"></label>
+            <label class="checkbox-row">
+              <input type="checkbox" id="drawingBox"class="exclusiveBox">
+              <span class="chackboxText">Drawing :</span>
+            </label>
+            <canvas id="drawingCanvas"></canvas>
+            <button class="button small" onclick="eraseDrawing()">Erase</button>
+            </div>
+            <div class="underParameterFrame">
+              <span class="generalSettingsText">General Settings :</span>
+              <div class="row"><h2>Particles Number</h2><input type="text" class="line-input"></div>
+              <div class="row"><h2>Particles Radius</h2><input type="text" class="line-input"></div>
+              <div class="row"><h2>Radius Difference</h2><input type="text" class="line-input"></div>
+              <div class="row"><h2>Acceleration</h2><input type="text" class="line-input"></div>
+              <div class="row"><h2>Acceleration Difference</h2><input type="text" class="line-input"></div>
+              <div class="row"><h2>Bounce Factor</h2><input type="text" class="line-input"></div>
+            </div>
+        </div>
+      </div>
+    <canvas id ="particlesCanvas"></canvas>
+  </div>
+
+    <script src="../../../logic.js"></script>
+
+    <script type="module" src="js/main.js"></script>
+    
+  </body>
+</html>
