@@ -1,8 +1,31 @@
-﻿fetch('/banner.html')
+﻿fetch('/misc/banner.html')
 .then(response => response.text())  
 .then(data => {
   document.getElementById('banner-container').innerHTML = data;
 });
+
+setDescriptionContent('/assets/images/ss/description.txt', 'ss');
+setDescriptionContent('/assets/images/sad/description.txt', 'sad');
+setDescriptionContent('/assets/images/ps/description.txt', 'ps');
+setDescriptionContent('/assets/images/mp/description.txt', 'mp');
+setDescriptionContent('/assets/images/mg/description.txt', 'mg');
+setDescriptionContent('/assets/images/mv/description.txt', 'mv');
+
+
+
+function setDescriptionContent(descriptionPath, id){
+  fetch(descriptionPath)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Fichier introuvable');
+    }
+    return response.text();
+  })
+  .then(data => {
+    if(document.getElementById(id))
+    document.getElementById(id).textContent = data;
+  })
+}
 
 function downloadFile(filePath) {
     var link = document.createElement('a');
@@ -33,20 +56,23 @@ function extractDate(data) {
 }
 
 let fileName = window.location.pathname.split('/').pop();
-if(fileName == "shape-survivor.html"){
+if(fileName == "ss.html"){
   getLastUpdateDate('61285052');
 }
-else if(fileName == "metronome.html"){
+else if(fileName == "mp.html"){
   getLastUpdateDate('61286686');
 }
-else if(fileName == "sorting.html"){
+else if(fileName == "sad.html"){
   getLastUpdateDate('61286493');
 }
-else if(fileName == "mandelbrot.html"){
+else if(fileName == "mv.html"){
   getLastUpdateDate('62698256');
 }
-else if(fileName == "mazeGenerator.html"){
+else if(fileName == "mg.html"){
   getLastUpdateDate('66064852');
+}
+else if(fileName == "ps.html"){
+  getLastUpdateDate('69538029');
 }
 
 
