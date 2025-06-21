@@ -33,12 +33,16 @@ body {
     display: flex;
     flex-direction: column;
 }
+#snakeCanvas {
+    position: fixed; 
+    top: 80px;
+    left: 0;
+    z-index: -1;
+}
 
 a {
     text-decoration: none;
 }
-
-
 
 h1 {
     color: #CCC;
@@ -55,6 +59,10 @@ h2 {
     font-family: 'Renogare';
 }
 
+.background-button{
+    width: 50px;
+    margin: -10px 0 0 10px
+}
 
 .projet-row-container{
     max-width: 100%;

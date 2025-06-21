@@ -69,6 +69,12 @@ body {
     margin: 0;
     padding: 0;
 }
+#snakeCanvas {
+    position: fixed; 
+    top: 80px;
+    left: 0;
+    z-index: -1;
+}
 
 .banner {
     background-color: #181818;

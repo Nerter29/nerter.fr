@@ -4,6 +4,7 @@
   document.getElementById('banner-container').innerHTML = data;
 });
 
+
 setDescriptionContent('/assets/images/ss/description.txt', 'ss');
 setDescriptionContent('/assets/images/sad/description.txt', 'sad');
 setDescriptionContent('/assets/images/ps/description.txt', 'ps');
@@ -25,15 +26,6 @@ function setDescriptionContent(descriptionPath, id){
     if(document.getElementById(id))
     document.getElementById(id).textContent = data;
   })
-}
-
-function downloadFile(filePath) {
-    var link = document.createElement('a');
-    link.href = filePath; 
-    link.download = filePath.split('/').pop();
-    document.body.appendChild(link);
-    link.click(); 
-    document.body.removeChild(link); 
 }
      
 async function getLastUpdateDate(projectId) {
