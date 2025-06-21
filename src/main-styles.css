@@ -15,6 +15,8 @@
         padding: 0 12px 0 12px;
         width: 200px;
     }
+
+
 }
 
 @media (min-width: 1000px) {
@@ -22,6 +24,10 @@
         padding: 0 12px 0 12px;
         width: 200px;
     }
+    .background-button{
+        position: absolute;
+    }
+
 }
 
 body {
@@ -60,7 +66,8 @@ h2 {
 
 .background-button{
     width: 50px;
-    margin: -10px 0 0 10px
+    margin: -10px 0 0 10px;
+    
 }
 
 .projet-row-container{
