@@ -6,13 +6,13 @@ class Snake{  // ça c'est ma classe
         this.snakeCells = []; // head + trail
         this.size = size;
 
-        this.headCell = [x,y] // head of the snake
-        this.x = x
-        this.y = y
+        this.x = x //
+        this.y = y //float position of the snake head
         this.vx = vx;
         this.vy = vy;
         this.acceleration = acceleration;
         
+
         //every color shit
         this.trailIntensity = trailIntensity
         this.bgIntensity = bgIntensity
@@ -24,8 +24,10 @@ class Snake{  // ça c'est ma classe
 
         //initialize the snakeCells list with a lot of the head coordinate so it does not mess with the colors at the start
         for(let i = 0; i < trailLength; i++){ 
-            this.snakeCells.push([this.headCell[0], this.headCell[1], 0])
+            this.snakeCells.push([this.x, this.y, 0])
         }
+
+        this.oneColorCycle = 360 / ((colorPeriod - trailLength * trailColorDifference) - 1)
     }
     fillCells(ctx) {
         for (const [col, row, color] of this.snakeCells) {
@@ -61,29 +63,28 @@ class Snake{  // ça c'est ma classe
     }
     updateColors(){
         //complicated stuff to make every cells of every snake nice to look at
-        const n = this.snakeCells.length
+        const n = this.trailLength
+        this.colorCounter++
+
         for(let i = n - 1; i >= 0; i--){
             const intensity = ((this.trailIntensity - this.bgIntensity) * (i / (n-2)) + this.bgIntensity)
             const shininess = (this.trailShininess * (i / (n-2)))
-            this.colorCounter++
-            this.snakeCells[i][2] = rainbowColors(i, n, intensity * 100,this.trailColorDifference,
-                 shininess * 100, this.colorCounter,  this.colorPeriod)
+            this.snakeCells[i][2] = rainbowColors(i, this.oneColorCycle, intensity * 100,this.trailColorDifference,
+                 shininess * 100, this.colorCounter)
         }
     }
     update(ctx){
         this.x += this.vx
         this.y += this.vy
-        this.headCell[0] = Math.round(this.x)
-        this.headCell[1] = Math.round(this.y)
-        this.moveToNextCell(ctx, this.headCell[0], this.headCell[1])
+
+        this.moveToNextCell(ctx, Math.round(this.x), Math.round(this.y))
     }
 }
 
-function rainbowColors(cellIndex, totalCell , intensity, trailColorDifference, shininess, colorCounter, colorPeriod){
-    //get the color of a cell based on its index on the snake (cellIndex / totalCell) and the instant of the period(colorCounter / colorPeriod)
-    const value = (colorCounter - cellIndex * trailColorDifference);
-    const total = (colorPeriod - totalCell * trailColorDifference) - 1;
-    const hue = ((360.0 / (total)) * value) % 360;
+function rainbowColors(cellIndex, oneColorCycle , intensity, trailColorDifference, shininess, colorCounter){
+    //get the color of a cell based on its index on the snake  and the instant of the period
+    const value = (colorCounter + cellIndex * trailColorDifference);
+    const hue = (oneColorCycle * value) % 360;
     return `hsl(${hue}, ${shininess}%, ${intensity}%`
 }
 
@@ -91,7 +92,7 @@ export function spawnSnakes(snakeCount, snakeList, size, canvasCells, startVeloc
                             trailShininess, trailColorDifference, snakeColorDifference, colorPeriod){
     //spawn snakes at random position and random base velovity
     for(let i = 0; i < snakeCount; i++){
-        const x =Math.round(Math.random() * canvasCells[0])
+        const x  =Math.round(Math.random() * canvasCells[0])
         const y = Math.round(Math.random() * canvasCells[1])
         const colorCounter = i * snakeColorDifference
 

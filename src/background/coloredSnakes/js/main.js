@@ -12,7 +12,7 @@ const ctx = canvas.getContext('2d');
 let topBannerHeight = canvas.getBoundingClientRect().top;
 
 canvas.width = window.innerWidth;
-canvas.height = window.innerHeight - topBannerHeight - 3; // -3 because else the page has a scroll bar because it's a little bit too tall
+canvas.height = window.innerHeight - topBannerHeight - 42; // -3 because else the page has a scroll bar because it's a little bit too tall //42 : wallpaper
 
 let mouseX = canvas.width / 2
 let mouseY = canvas.height / 2 //the base mouse position is at the center of the screen
@@ -28,18 +28,18 @@ const snakeList = []
 
 //all settings that we can change
 const cellSize = 13
-const delayMilliseconds = 15;
-const snakeCount = 15
+const delayMilliseconds = 15
+const snakeCount = 16 // 15
 const bounceFactor = 0.2
-const acceleration= 0.004
-const startVelocity = 0.5
+const acceleration= 0.0035 // 0.004
+const startVelocity = 0.6
 
-const colorPeriod = 100000 // number of frame necessary to make one full color loop
-const trailLength = 100;
+const colorPeriod = 3000// number of frame necessary to make one full color loop // 100 000
+const trailLength = 100; // 100
 const trailIntensity = 0.3
 const trailShininess = 0.3
-let trailColorDifference = 30 // the difference of colorCount beetween the head and tail of the snake
-const snakeColorDifference = (colorPeriod / snakeCount) / 5 // the difference of color beetween all snakes (increase the last divider to decrease it, vice versa)
+let trailColorDifference = 6// the difference of colorCount beetween the head and tail of the snake // 30
+const snakeColorDifference = (colorPeriod / snakeCount) / 7// the difference of color beetween all snakes (increase the last divider to decrease it, vice versa) // 5
 
 
 let cellNumber = [Math.round(canvas.width / cellSize -1), Math.round(canvas.height / cellSize -2)]

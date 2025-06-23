@@ -65,7 +65,7 @@
 }
 body {
     font-family: 'Renogare';
-    background-color: #222;
+    background-color: #181818;
     margin: 0;
     padding: 0;
 }
@@ -76,11 +76,7 @@ body {
     z-index: -1;
 }
 
-.banner {
-    background-color: #181818;
-    color: #fff;
-    width: 100%;
-}
+
 
 h1 {
     color: #CCC;
