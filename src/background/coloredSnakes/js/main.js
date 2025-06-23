@@ -59,8 +59,8 @@ const bgIntensity = parseInt(getComputedStyle(document.body).backgroundColor.mat
 spawnSnakes(snakeCount, snakeList, cellSize, cellNumber, startVelocity, acceleration, trailLength, trailIntensity, bgIntensity,
 trailShininess, trailColorDifference, snakeColorDifference, colorPeriod)
 
-setInterval(animateSnakes, delayMilliseconds)
-
+//setInterval(animateSnakes, delayMilliseconds)
+animateSnakes()
 function animateSnakes(){ // main loop
   const mousePos = getMousePosition(cellSize, mouseX, mouseY);
   for (let snake of snakeList) {
@@ -68,6 +68,8 @@ function animateSnakes(){ // main loop
     snake.bounceOnBorders(cellNumber, bounceFactor)
     snake.update(ctx)
   }
+
+  requestAnimationFrame(animateSnakes)
 }
 
 function getMousePosition(cellSize, mouseX, mouseY) {
