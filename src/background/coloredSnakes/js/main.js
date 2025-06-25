@@ -12,7 +12,7 @@ const ctx = canvas.getContext('2d');
 let topBannerHeight = canvas.getBoundingClientRect().top;
 
 canvas.width = window.innerWidth;
-canvas.height = window.innerHeight - topBannerHeight - 42; // -3 because else the page has a scroll bar because it's a little bit too tall //42 : wallpaper
+canvas.height = window.innerHeight - topBannerHeight - 3; // -3 because else the page has a scroll bar because it's a little bit too tall //42 : wallpaper
 
 let mouseX = canvas.width / 2
 let mouseY = canvas.height / 2 //the base mouse position is at the center of the screen
@@ -31,7 +31,7 @@ const cellSize = 13
 const delayMilliseconds = 15
 const snakeCount = 16 // 15
 const bounceFactor = 0.2
-const acceleration= 0.0035 // 0.004
+const acceleration= 0.0035// 0.004
 const startVelocity = 0.6
 
 const colorPeriod = 3000// number of frame necessary to make one full color loop // 100 000

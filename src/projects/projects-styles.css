@@ -254,7 +254,8 @@ h3 {
     left: 0;
     width: 98%;
     height: 95%;
-    border: 3px solid #222;
+    border: 3px solid #181818;
+    z-index: -1;
     transition: opacity 0.3s, border 0.3s; }
 .download-button:hover::before {
     opacity: 1; }
@@ -293,7 +294,9 @@ h3 {
     left: 0;
     width: 96%;
     height: 90%;
-    border: 3px solid #222;
+    border: 3px solid #181818;
+    z-index: -1;
+
     transition: opacity 0.3s, border 0.3s; }
 .tutoriel-button:hover::before {
     opacity: 1; }
