@@ -1,101 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
 
 <div class="banner">
-      <a href="/index.html" >
-        <img src="/assets/images/logo.png" alt="image" class="logo-image">
-      </a>
-</div>
-<div class="home-image-container">
-  <a href="/index.html">
-    <img src="/assets/images/home-icon-baw.png" alt="image" class="home-image baw-image-home" >
-    <img src="/assets/images/home-icon-colored.png" alt="image" class="home-image colored-image-home" >
-  </a>
+
+  <!-- menu bar -->
+  <!-- Oui toutes ces icones ont les mêmes couleurs que le logo gitlab -->
+
+  <div class="menu-bar">
+    <a href="/index.html">
+      <img src="/assets/images/banner/home-icon.png" class="menu-button" title="Acceuil">
+    </a>
+    <a href="/background/coloredSnakes/snakes.html"> 
+      <img src="/assets/images/banner/background-icon.png" alt="" class="menu-button" title="Voir l'arrière-plan">
+    </a>
+    <a href="https://gitlab.com/users/Nerter/projects" target="_blank">
+      <img src="/assets/images/banner/gitlab-icon.png" class="menu-button" title="Gitlab">
+    </a>
+    <a href="mailto:terence.chardes@gmail.com">
+      <img src="/assets/images/banner/mail-icon.png" class="menu-button" title="Contacte Moi">
+    </a>
+  </div>
   
-  <div class="home-text">Accueil</div>
-</div>
-
-
-<div class="gitlab-image-container">
-
-  <a href="https://gitlab.com/users/Nerter/projects" target="_blank">
-    <img src="/assets/images/gitlab-logo-baw.png" alt="image" class="gitlab-image baw-image-gitlab">
-    <img src="/assets/images/gitlab-logo-colored.png" alt="image" class="gitlab-image colored-image-gitlab">
-  </a>
-  <div class="gitlab-text">Gitlab</div>
+  <!-- logo -->
+  <div class="logo-container">
+    <a href="/index.html" >
+      <img src="/assets/images/banner/nerter-logo.png" class="logo-image">
+    </a>
+  </div>
 </div>
 
 <style>
-
-@media (max-width: 1000px) {
-  
-  .banner {
-      height: 80px;
-  }
+@media (max-width: 800px) {/*vertical*/
   .logo-image {
-      width: 220px;
+    width: 200px;
   }
-  .home-image-container {
-    width: 40px;
-    margin: -77px 20px 73px 12px;
+  .menu-bar {
+    flex-direction: column;
+    align-items: center;
+    top:0px;
   }
-  .home-text {
-    top: 50px; 
-    font-size: 16px;
-    left: 50%;
+  .menu-button{
+    margin: 10px 10px 10px 10px;
+    height:25px;
   }
 
-  .gitlab-image-container {
-    width: 35px; 
-    height: 35px; 
-    bottom: 6px;
-    margin: -140px 12px 50px auto;
-
-  }
-  .gitlab-text {
-  top: 46px; 
-  font-size: 16px;
-  left: 48%;
-
-  }
 }
-
-
-@media (min-width: 1000px) {
-
-    .banner {
-        height: 80px;
-    }
-    .logo-image {
-        width: 250px;
-    }
-    .home-image-container {
-      width: 60px;
-      margin: -75px 20px 90px 30px;
-    }
-    .home-text {
-      top: 47px; 
-      font-size: 18px;
-      left: 32%;
-    }
-    .gitlab-image-container {
-      width: 50px; 
-      height: 50px; 
-      bottom: 5px;
-      margin: -157px 30px 30px auto;
-    }
-    .gitlab-text {
-        top: 44px; 
-        font-size: 18px;
-        left: 37%;
-
-    }
+@media (min-width: 800px) {/*horizontal*/
+  .logo-image {
+    width: 250px;
+  }
+  .menu-button{
+    margin: 0 0 0 20px;
+    height:35px;
+  }
 }
 
 .banner {
-  
-  background-color: #111111;
+  background-color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  position: relative;
+  margin: 0 0 20px 0;
+}
+
+.logo-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-grow: 1;
 }
 
 .logo-image {
@@ -103,91 +76,25 @@
   margin-left: auto;
 }
 
-
-
-
-.home-image-container {
-  position: relative;
-}
-
-.home-image{
-  max-width: 100%;
-  height: auto;
-  margin: 10px 10px 0 0;
-  width: 40px;
-  transition: opacity 0.5s ease;
+.menu-bar {
+  background-color: #111;
+  z-index: 1;
   position: absolute;
+  left: 0px;
+  display: flex;
+  border-radius: 5px;
 }
 
-.baw-image-home {
-  opacity: 1;
+.menu-button{
+  transition: transform 0.25s ease;
+
 }
 
-.colored-image-home {
-  opacity: 0;
+.menu-button:hover{
+  transform: scale(1.1) translateY(-3px);
+  filter: brightness(1.3);
 }
 
-.home-text {
-  position: absolute;
-  transform: translateX(-50%);
-  color: white;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.home-image-container:hover .baw-image-home {
-  opacity: 0;
-}
-
-.home-image-container:hover .colored-image-home {
-  opacity: 1;
-}
-
-.home-image-container:hover .home-text {
-  opacity: 1;
-}
-
-
-.gitlab-image-container {
-  position: relative;
-}
-
-.gitlab-image {
-  max-width: 100%;
-  height: auto;
-  margin: 10px 10px 0 0;
-  width: 35px;
-  transition: opacity 0.5s ease;
-  position: absolute;
-}
-
-.baw-image-gitlab {
-  opacity: 1;
-}
-
-.colored-image-gitlab {
-  opacity: 0;
-}
-
-.gitlab-text {
-  position: absolute;
-  transform: translateX(-50%);
-  color: white;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.gitlab-image-container:hover .baw-image-gitlab {
-  opacity: 0;
-}
-
-.gitlab-image-container:hover .colored-image-gitlab {
-  opacity: 1;
-}
-
-.gitlab-image-container:hover .gitlab-text {
-  opacity: 1;
-}
 </style>
   
 

@@ -4,34 +4,8 @@
     url('assets/fonts/Renogare.ttf') format('truetype');
 }
 
-@media (max-width: 1000px) {
-    
-    .projet-row-container {
-        flex-direction: column;    
-        align-items: center;
-        justify-content: center;
-    }
-    .project-container {
-        padding: 0 12px 0 12px;
-        width: 200px;
-    }
-
-
-}
-
-@media (min-width: 1000px) {
-    .project-container{
-        padding: 0 12px 0 12px;
-        width: 200px;
-    }
-    .background-button{
-        position: absolute;
-    }
-
-}
 
 body {
-    font-family: 'Renogare';
     background-color: #181818;
     margin: 0;
     padding: 0;
@@ -40,35 +14,21 @@ body {
 }
 #snakeCanvas {
     position: fixed; 
-    top: 80px;
-    left: 0;
-    z-index: -1;
+    top: 80px; /* banner height*/
+    z-index: -1; /*so it's under everything*/
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none; /* so it doesn't underline every link*/
 }
 
 h1 {
     color: #CCC;
     font-size: 20px;
     text-align: center;
-
     font-family: 'Renogare';
 }
 
-h2 {
-    color: #CCC;
-    font-size: 22px;
-    text-align: center;
-    font-family: 'Renogare';
-}
-
-.background-button{
-    width: 50px;
-    margin: -10px 0 0 10px;
-    
-}
 
 .projet-row-container{
     max-width: 100%;
@@ -80,13 +40,14 @@ h2 {
 }
 
 .project-container {
-    max-width: 100%;
+    padding: 0 12px 0 12px;
+    width: 200px;
     margin: 0 0 25px 0 ;
     text-align: center;
     position: relative;
 }
 
-.text-container {
+.title-container {
     margin: -15px 0 0 0 ;
 }
 
@@ -113,7 +74,6 @@ h2 {
     display: block;
     margin: 0 auto;
     transition: transform 0.25s ease;
-
 }
 
 .presentation-image-container img:hover {
@@ -133,10 +93,3 @@ h2 {
     display: block;
     margin: 0 auto;
 }
-
-
-
-
-
-  
-
