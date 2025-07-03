@@ -27,8 +27,11 @@ window.addEventListener('click', function(event) {
 const snakeList = []
 
 //all settings that we can change
-const cellSize = 13
-const delayMilliseconds = 15
+let cellSize = 12
+if(canvas.width < 800){//for smartphones
+  cellSize = 6
+}
+//const delayMilliseconds = 15
 const snakeCount = 16 // 15
 const bounceFactor = 0.2
 const acceleration= 0.0035// 0.004
