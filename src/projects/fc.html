@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, , initial-scale=1.0">
+    <title>Nerter Development</title>
+    <link rel="stylesheet" href="projects-styles.css?v=1.0.1" type="text/css">
+    <link rel="icon" type="image/vnd.icon" href="../assets/images/N_Logo_zoomed.ico">
+</head>
+
+<body>
+  <div id="banner-container"></div>
+  <canvas id="snakeCanvas"></canvas>
+  <div class="main-container">   
+    <div class="project-container">
+      <h1>Fireworks CLI</h1>
+      <img src="../assets/images/fc/presentation.png" alt="" class="presentation-image" >
+      <a href="https://gitlab.com/Nerter/fireworks" download>
+      <button class="project-button big" >Installer pour Linux</button>
+      </a>
+      <h4>C'est un peu lent sur windows car le cli est designé pour linux, mais ça marche quand même. Suivez les instructions du README 
+        <a href="https://gitlab.com/Nerter/fireworks"style="color: cyan;">ici</a> pour installer sur windows.
+      </h2>
+
+    </div>
+
+
+    <div class="description-container">
+      <h2 id="fc"></h2>
+      <div class="description-image-container">
+        <img src="../assets/images/fc/image1.png" alt="" class="description-image-portrait" >
+        <img src="../assets/images/fc/image2.png" alt="" class="description-image-portrait" >
+      </div>
+      <h3> <div id="lastUpdateDate"></div></h3>
+      <div class="icon-container">
+          <img src="../assets/images/platforms/linux-developped.png" alt="" class="icon-image" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="../assets/images/platforms/windows-developped-parenthesis.png" alt="" class="icon-image" >
+
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="../logic.js"></script>
+<script type="module" src="../background/coloredSnakes/js/main.js"></script>
+
+</html>

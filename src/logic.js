@@ -15,6 +15,8 @@ setDescriptionContent('/assets/images/ps/description.txt', 'ps');
 setDescriptionContent('/assets/images/mp/description.txt', 'mp');
 setDescriptionContent('/assets/images/mg/description.txt', 'mg');
 setDescriptionContent('/assets/images/mv/description.txt', 'mv');
+setDescriptionContent('/assets/images/fc/description.txt', 'fc');
+
 
 function setDescriptionContent(descriptionPath, id){ //set project description from a description file
   fetch(descriptionPath)
@@ -41,6 +43,7 @@ else if(fileName == "sad.html"){setLastUpdateDate('61286493');}
 else if(fileName == "mv.html"){setLastUpdateDate('62698256');}
 else if(fileName == "mg.html"){setLastUpdateDate('66064852');}
 else if(fileName == "ps.html"){setLastUpdateDate('69538029');}
+else if(fileName == "fc.html"){setLastUpdateDate('71778732');}
 
 
      
