@@ -37,31 +37,45 @@ function setDescriptionContent(descriptionPath, id){ //set project description f
 
 let fileName = window.location.pathname.split('/').pop();
 
-if(fileName == "ss.html"){setLastUpdateDate('61285052');}
-else if(fileName == "mp.html"){setLastUpdateDate('61286686');}
-else if(fileName == "sad.html"){setLastUpdateDate('61286493');}
-else if(fileName == "mv.html"){setLastUpdateDate('62698256');}
-else if(fileName == "mg.html"){setLastUpdateDate('66064852');}
-else if(fileName == "ps.html"){setLastUpdateDate('69538029');}
-else if(fileName == "fc.html"){setLastUpdateDate('71778732');}
+if(fileName == "ss.html"){setLastUpdateDate('shape-survivor');}
+else if(fileName == "mp.html"){setLastUpdateDate('metronome-programmable');}
+else if(fileName == "sad.html"){setLastUpdateDate('sorting-algorithm-deluxe');}
+else if(fileName == "mv.html"){setLastUpdateDate('mandelbrot-visualizer');}
+else if(fileName == "mg.html"){setLastUpdateDate('maze-generator');}
+else if(fileName == "ps.html"){setLastUpdateDate('particles-simulator');}
+else if(fileName == "fc.html"){setLastUpdateDate('fireworks-cli');}
 
 
      
-async function setLastUpdateDate(projectId) { // set the date of the last gitlab commit from a project 
-  const response = await fetch(`https://gitlab.com/api/v4/projects/${projectId}/repository/commits`)
+async function setLastUpdateDate(repoName) {
+  const response = await fetch(`https://api.github.com/repos/Nerter29/${repoName}/commits`);
 
-  const commit = await response.json();
-  const date = getCommitDate(commit);
+  if (!response.ok) {
+    console.error('Erreur lors de la récupération des commits GitHub');
+    return;
+  }
 
+  const commits = await response.json();
+
+  //we want to avoid commits that are edit of readmes
+  let commit_num =0
+  for (let i = 0; i < commits.length; i++){
+    if(!commits[i].commit.message.toLowerCase().includes("readme")){
+      commit_num = i
+      break
+    }
+  }
+
+  const date = getCommitDate(commits, commit_num);
   const outputDiv = document.getElementById('lastUpdateDate');
   outputDiv.textContent = `Dernière Mise à Jour : ${date}`;
 }
 
-function getCommitDate(data) {//extract the date from the last commit of commits.json
-  const entry = data[0]; //last commit
-  let dateArray = entry.committed_date.substring(0, 10).split('-');
-  return dateArray[2] + '/' + dateArray[1] + '/' + dateArray[0]; // jj/mm/aaaa french format lets go
-  
-}
+function getCommitDate(data, commit_num) {
+  const entry = data[commit_num];
+  const dateISO = entry.commit.committer.date;
 
+  const dateArray = dateISO.substring(0, 10).split('-');
+  return `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
+}
 

@@ -1,3 +1,3 @@
 [submodule "src/projects/web/ps-web"]
 	path = src/projects/web/ps-web
-	url = https://gitlab.com/Nerter/particles-simulator
+	url = https://github.com/Nerter29/particles-simulator

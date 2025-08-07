@@ -39,8 +39,8 @@ const startVelocity = 0.6
 
 const colorPeriod = 3000// number of frame necessary to make one full color loop // 100 000
 const trailLength = 100; // 100
-const trailIntensity = 0.3
 const trailShininess = 0.3
+const trailIntensity = 0.2
 let trailColorDifference = 6// the difference of colorCount beetween the head and tail of the snake // 30
 const snakeColorDifference = (colorPeriod / snakeCount) / 7// the difference of color beetween all snakes (increase the last divider to decrease it, vice versa) // 5
 
