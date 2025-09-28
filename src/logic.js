@@ -16,6 +16,7 @@ setDescriptionContent('/assets/images/mp/description.txt', 'mp');
 setDescriptionContent('/assets/images/mg/description.txt', 'mg');
 setDescriptionContent('/assets/images/mv/description.txt', 'mv');
 setDescriptionContent('/assets/images/fc/description.txt', 'fc');
+setDescriptionContent('/assets/images/miv/description.txt', 'miv');
 
 
 function setDescriptionContent(descriptionPath, id){ //set project description from a description file
@@ -44,6 +45,8 @@ else if(fileName == "mv.html"){setLastUpdateDate('mandelbrot-visualizer');}
 else if(fileName == "mg.html"){setLastUpdateDate('maze-generator');}
 else if(fileName == "ps.html"){setLastUpdateDate('particles-simulator');}
 else if(fileName == "fc.html"){setLastUpdateDate('fireworks-cli');}
+else if(fileName == "miv.html"){setLastUpdateDate('mic-viz');}
+
 
 
      

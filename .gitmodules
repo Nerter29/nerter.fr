@@ -1,3 +1,6 @@
 [submodule "src/projects/web/ps-web"]
 	path = src/projects/web/ps-web
 	url = https://github.com/Nerter29/particles-simulator
+[submodule "src/projects/web/miv-web"]
+	path = src/projects/web/miv-web
+	url = git@github.com:Nerter29/mic-viz.git
