@@ -9,32 +9,34 @@
 </head>
 
 <body>
-  <div id="banner-container"></div>
+  <header><div id="banner-container"></div></header>
   <canvas id="snakeCanvas"></canvas>
-  <div class="main-container">   
-    <div class="project-container">
+
+  <main>   
+    <section class="project">
       <h1>Metronome Programmable</h1>
       <img src="../assets/images/mp/presentation.png" alt="" class="presentation-image" >
 
       <a href="https://raw.githubusercontent.com/Nerter29/metronome-programmable/main/Metronome Programmable.apk" download>
-      <button class="project-button big">Télécharger</button>
+        <button class="project-button big">Télécharger</button>
       </a>
       <a href="../misc/metronome-tuto.html" >
         <button class="project-button small">Tutoriel<br>d'Installation</button>
       </a>
-    </div>
-    <div class="description-container">
+    </section>
+
+    <section>
       <h2 id="mp"></h2>
       <div class="description-image-container">
         <img src="../assets/images/mp/image1.png" alt="" class="description-image-portrait" >
         <img src="../assets/images/mp/image2.png" alt="" class="description-image-portrait" >
       </div>
-      <h3> <div id="lastUpdateDate"></div></h3>
+      <h3 id="lastUpdateDate"></h3>
       <div class="icon-container">
         <img src="../assets/images/platforms/android-developped.png" alt="" class="icon-image" >
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 </body>
 <script src="../logic.js"></script>
 <script type="module" src="../background/coloredSnakes/js/main.js"></script>

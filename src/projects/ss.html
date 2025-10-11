@@ -9,36 +9,37 @@
 </head>
 
 <body>
-  <div id="banner-container"></div>
+  <header><div id="banner-container"></div></header>
   <canvas id="snakeCanvas"></canvas>
-  <div class="main-container">   
-    <div class="project-container">
+
+  <main>   
+    <section class="project">
       <h1>Shape Survivor</h1>
       <img src="../assets/images/ss/presentation.png" alt="" class="presentation-image" >
       <a href="web/ss-web/shape-survivor-web.html" >
         <button class="project-button big">Jouer sur Navigateur</button>
       </a>
       <a href="https://raw.githubusercontent.com/Nerter29/shape-survivor/main/ShapeSurvivor-v1.6.zip" download>
-      <button class="project-button medium">Télécharger</button>
+        <button class="project-button medium">Télécharger</button>
       </a>
       <a href="../misc/zipfile-tuto.html" >
         <button class="project-button small">Tutoriel<br>d'Installation</button>
       </a>
-    </div>
-    <div class="description-container">
-      <h2 id="ss"></h2>
+    </section>
 
+    <section>
+      <h2 id="ss"></h2>
       <div class="description-image-container">
         <img src="../assets/images/ss/image2.png" alt="" class="description-image-landscape" >
         <img src="../assets/images/ss/image3.png" alt="" class="description-image-landscape" >
       </div>
-      <h3> <div id="lastUpdateDate"></div></h3>
+      <h3 id="lastUpdateDate"></h3>
       <div class="icon-container">
         <img src="../assets/images/platforms/windows-developped.png" alt="" class="icon-image" >
         <img src="../assets/images/platforms/web-logo-developped.png" alt="" class="icon-image" >
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 </body>
 
 <script src="../logic.js"></script>
