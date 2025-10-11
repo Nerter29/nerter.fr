@@ -1,7 +1,7 @@
 
 class Snake{  // ça c'est ma classe
     constructor(x, y, size, vx, vy, acceleration, trailLength, trailIntensity, bgIntensity, trailShininess, colorCounter,
-         trailColorDifference, colorPeriod){ 
+        trailColorDifference, colorPeriod){ 
 
         this.snakeCells = []; // head + trail
         this.size = size;
@@ -65,7 +65,6 @@ class Snake{  // ça c'est ma classe
         //complicated stuff to make every cells of every snake nice to look at
         const n = this.trailLength
         this.colorCounter++
-
         for(let i = n - 1; i >= 0; i--){
             const intensity = ((this.trailIntensity - this.bgIntensity) * (i / (n-2)) + this.bgIntensity)
             const shininess = (this.trailShininess * (i / (n-2)))
@@ -91,10 +90,11 @@ function rainbowColors(cellIndex, oneColorCycle , intensity, trailColorDifferenc
 export function spawnSnakes(snakeCount, snakeList, size, canvasCells, startVelocity, acceleration,trailLength, trailIntensity, bgIntensity,
                             trailShininess, trailColorDifference, snakeColorDifference, colorPeriod){
     //spawn snakes at random position and random base velovity
+    var startColor =Math.random() * colorPeriod;
     for(let i = 0; i < snakeCount; i++){
         const x  =Math.round(Math.random() * canvasCells[0])
         const y = Math.round(Math.random() * canvasCells[1])
-        const colorCounter = i * snakeColorDifference
+        const colorCounter = i * snakeColorDifference + startColor
 
         const velocity = randomVelocity(startVelocity)
         const vx = velocity[0]
