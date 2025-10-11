@@ -16,21 +16,15 @@
     <section class="project">
       <h1>Mandelbrot Visualizer</h1>
       <img src="../assets/images/mv/presentation.png" alt="" class="presentation-image" >
-      <a href="https://raw.githubusercontent.com/Nerter29/mandelbrot-visualizer/main/MandelbrotVisualizer-windows.zip" download>
-        <button class="project-button big" >Télecharger pour Windows</button>
-      </a>
-      <a href="https://github.com/Nerter29/mandelbrot-visualizer.git" download>
-        <button class="project-button medium">Installer pour Linux</button>
-      </a>
-      <a href="../misc/zipfile-tuto.html" >
-        <button class="project-button small">Tutoriel<br>d'Installation</button>
-      </a>
+        <button class="project-button big" onclick="window.location.href='https://raw.githubusercontent.com/Nerter29/mandelbrot-visualizer/main/MandelbrotVisualizer-windows.zip';">Télecharger pour Windows</button>
+        <button class="project-button medium" onclick="window.location.href='https://github.com/Nerter29/mandelbrot-visualizer.git';">Installer pour Linux</button>
+        <button class="project-button small" onclick="window.location.href='../misc/zipfile-tuto.html';">Tutoriel<br>d'Installation</button>
     </section>
     <section>
       <h2 id="mv"></h2>
       <div class="description-image-container">
-        <img src="../assets/images/mv/image1.png" alt="" class="description-image-landscape" >
-        <img src="../assets/images/mv/image2.png" alt="" class="description-image-landscape" >
+        <img src="../assets/images/mv/image1.png" alt="" class="landscape" >
+        <img src="../assets/images/mv/image2.png" alt="" class="landscape" >
       </div>
       <h3 id="lastUpdateDate"></h3>
       <div class="icon-container">
@@ -39,9 +33,8 @@
       </div>
     </section>
   </main>
+  
+  <script src="../logic.js"></script>
+  <script type="module" src="../background/coloredSnakes/js/main.js"></script>
 </body>
-
-<script src="../logic.js"></script>
-<script type="module" src="../background/coloredSnakes/js/main.js"></script>
-
 </html>

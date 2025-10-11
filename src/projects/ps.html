@@ -16,26 +16,23 @@
     <section class="project">
       <h1>Particles Simulator</h1>
       <img src="../assets/images/ps/presentation.png" alt="" class="presentation-image" >
-      <a href="web/ps-web/particles.html" >
-        <button class="project-button big">Tester sur Navigateur</button>
-      </a>
+      <button class="project-button big" onclick="window.location.href='web/ps-web/particles.html';">Tester sur Navigateur</button>
     </section>
 
     <section>
       <h2 id="ps"></h2>
       <div class="description-image-container">
-        <img src="../assets/images/ps/image3.png" alt="" class="description-image-landscape" >
-        <img src="../assets/images/ps/image2.png" alt="" class="description-image-landscape" >
+        <video src="../assets/videos/particles.mp4" autoplay loop muted preload="auto" class="landscape"></video>
+
       </div>
       <h3 id="lastUpdateDate"></h3>
       <div class="icon-container">
-        <img src="../assets/images/platforms/web-logo-developped.png" alt="" class="icon-image" >
+        <img  src="../assets/images/platforms/web-logo-developped.png" alt="" class="icon-image" >
       </div>
     </section>
   </main>
 
+  <script src="../logic.js"></script>
+  <script type="module" src="../background/coloredSnakes/js/main.js"></script>
 </body>
-<script src="../logic.js"></script>
-<script type="module" src="../background/coloredSnakes/js/main.js"></script>
-
 </html>
