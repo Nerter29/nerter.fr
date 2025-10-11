@@ -31,7 +31,7 @@
     }
 
     .icon-container {
-        display: none;
+        display: none !important;
     }
 
     h1{font-size: 24px;}
