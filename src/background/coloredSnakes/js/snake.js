@@ -47,13 +47,13 @@ class Snake{  // ça c'est ma classe
         this.updateColors()
         this.fillCells(ctx);
     }
-    accelerateToCursor(mousePos){
+    accelerateToCursor(mousePos, frameFactor){
         const dx = this.x - mousePos[0];
         const dy = this.y - mousePos[1];
         const totalDistance = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)) // norm of a vector
         let direction = [-dx / totalDistance, -dy / totalDistance];
-        this.vx += direction[0] * this.acceleration;
-        this.vy += direction[1] * this.acceleration
+        this.vx += direction[0] * this.acceleration * frameFactor;
+        this.vy += direction[1] * this.acceleration * frameFactor
     }
     bounceOnBorders(canvasSize, bounceFactor){
         if(this.x < 0 ){ this.vx *= -bounceFactor; this.x += 1}
@@ -72,9 +72,9 @@ class Snake{  // ça c'est ma classe
                  shininess * 100, this.colorCounter)
         }
     }
-    update(ctx){
-        this.x += this.vx
-        this.y += this.vy
+    update(ctx, frameFactor){
+        this.x += this.vx * frameFactor;
+        this.y += this.vy * frameFactor;
 
         this.moveToNextCell(ctx, Math.round(this.x), Math.round(this.y))
     }

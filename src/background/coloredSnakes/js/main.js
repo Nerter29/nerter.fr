@@ -63,17 +63,26 @@ spawnSnakes(snakeCount, snakeList, cellSize, cellNumber, startVelocity, accelera
 trailShininess, trailColorDifference, snakeColorDifference, colorPeriod)
 
 //setInterval(animateSnakes, delayMilliseconds)
-animateSnakes()
-function animateSnakes(){ // main loop
+
+let lastTime = performance.now();
+
+function animateSnakes(currentTime){ // main loop
+  const deltaTime = (currentTime - lastTime) / 1000; 
+  lastTime = currentTime;
+  const fpsReference = 60;
+  const frameFactor = deltaTime * fpsReference;
+
   const mousePos = getMousePosition(cellSize, mouseX, mouseY);
   for (let snake of snakeList) {
-    snake.accelerateToCursor(mousePos)
+    snake.accelerateToCursor(mousePos, frameFactor)
     snake.bounceOnBorders(cellNumber, bounceFactor)
-    snake.update(ctx)
+    snake.update(ctx, frameFactor)
   }
 
   requestAnimationFrame(animateSnakes)
 }
+
+animateSnakes(performance.now())
 
 function getMousePosition(cellSize, mouseX, mouseY) {
   const col = Math.floor(mouseX / cellSize);
