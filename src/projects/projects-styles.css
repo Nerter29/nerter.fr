@@ -44,7 +44,7 @@
 @media (min-width: 800px) {   /*horizontal*/
     .project{
         margin: 0 0 0 50px ;
-        width: 280px;
+        width: 250px;
 
     }
     section{
@@ -56,7 +56,7 @@
         border-radius: 25px;
     }
     .landscape{
-        width: 650px;
+        width: 450px;
     }
     .portrait{
         height: 450px;
@@ -90,6 +90,8 @@ h2{
     color: #CCC;
     font-family: 'Renogare';
     margin: 20px 10px;
+    line-height: 1.2;
+    letter-spacing: 0.7px;
 }
 h3 {
     color: #808080;
