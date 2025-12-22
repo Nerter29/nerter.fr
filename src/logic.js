@@ -17,6 +17,8 @@ setDescriptionContent('/assets/images/mg/description.txt', 'mg');
 setDescriptionContent('/assets/images/mv/description.txt', 'mv');
 setDescriptionContent('/assets/images/fc/description.txt', 'fc');
 setDescriptionContent('/assets/images/miv/description.txt', 'miv');
+setDescriptionContent('/assets/images/hc/description.txt', 'hc');
+
 
 
 function setDescriptionContent(descriptionPath, id){ //set project description from a description file
@@ -46,10 +48,10 @@ else if(fileName == "mg.html"){setLastUpdateDate('maze-generator');}
 else if(fileName == "ps.html"){setLastUpdateDate('particles-simulator');}
 else if(fileName == "fc.html"){setLastUpdateDate('fireworks-cli');}
 else if(fileName == "miv.html"){setLastUpdateDate('mic-viz');}
+else if(fileName == "hc.html"){setLastUpdateDate('helical-cli');}
 
 
 
-     
 async function setLastUpdateDate(repoName) {
   const response = await fetch(`https://api.github.com/repos/Nerter29/${repoName}/commits`);
 
