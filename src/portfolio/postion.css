@@ -1,0 +1,230 @@
+
+
+
+/*-----------------------------------------------------------Nav----------------------------------------------------------*/
+
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+
+    border: 2px solid var(--blue-6);
+    border-radius: 4px;
+    background-color: var(--blue-2);
+    position: sticky;
+    top : 0.3em;
+    margin: 0.3em;
+}
+
+ol{
+    display: flex;    
+    flex-direction: row;
+    padding-left: 0;
+    gap: 2em;
+    margin: 0.3em 2em;
+    list-style: none; /*to remove the number because we give it a different color*/
+    counter-reset: step;
+    width: fit-content;
+}
+
+nav ol li{
+    counter-increment: step;
+}
+
+nav ol li::before { /*color of the number*/
+    content: counter(step) ".";
+    color: var(--green-10); 
+    margin-right: 0.1rem;
+}
+a{
+    text-decoration: none;
+}
+nav li, .skill-card li{
+    color: var(--blue-12);
+    transition: transform 0.2s ease,
+                color 0.3s ease
+}
+nav li:hover, .skill-card li:hover{
+    transform: translateY(-2px);
+        color: var(--blue-11)
+
+}
+
+/*-----------------------------------------------------------Corpse----------------------------------------------------------*/
+
+body {
+    background-color: var(--blue-1);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 8em 10em 0 10em;
+}
+
+/*-----------------------------------------------------------Welcome----------------------------------------------------------*/
+.welcome{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8em;
+}
+.name-bloc{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+#under-title{
+    font-size: 1.5em;
+    margin: 0.1em 0 0 0.8rem;
+
+}
+.img-cv-bloc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 4em;
+
+}
+.img-cv-bloc > img{ /*profile photo*/
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 14px 15px var(--green-4);
+
+}
+
+/*-----------------------------------------------------------Skills----------------------------------------------------------*/
+
+.skills-bloc{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5em;
+}
+.skill-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--blue-2);
+    border: solid 2px var(--blue-6);
+    border-radius: 8px;
+    box-shadow: 0 8px 15px var(--blue-4);
+    width: 31%
+}
+.skill-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 0.5em;
+    width: 100%;
+}
+
+.skill-card ul{
+    list-style: none;
+    padding-left: 0;
+    line-height: 2em;
+
+}
+.skill-card li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+.skill-icon{
+    width: 24px;
+    margin-right: 0.4em;
+}
+
+/*-----------------------------------------------------------Projects----------------------------------------------------------*/
+
+#project-unter-title{
+    color: var(--blue-8);
+    font-size: 1.5em;
+    margin: -0.2em 0 0.8em 0;
+}
+.projects-bloc{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 5em;
+}
+.project-card{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    background-color: var(--blue-2);
+    border: solid 2px var(--blue-6);
+    border-radius: 8px;
+    box-shadow: 0 8px 15px var(--blue-4);
+    width: 75%;
+    margin-bottom: 2em;
+}
+
+.left-position {
+    align-self: flex-start;
+}
+
+.right-position {
+    align-self: flex-end;
+}
+
+.project-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 0.5em;
+}
+
+.media-bloc{
+    display: flex;
+    flex-direction: column;
+    margin: auto 0.5em;
+
+}
+
+.project-media{
+    border: solid 2px var(--green-6);
+    border-radius: 8px;
+    box-shadow: 0 2px 15px var(--green-4);
+}
+.media-vertical{
+    margin: auto 0.5em;
+    width: 120px;
+
+}
+.media-square{
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    margin: auto 1em;
+}
+.media-horizontal{
+    width: 250px;
+    margin: auto 1em;
+    margin: 0.5em 0 0.5em 0;
+
+}
+
+
+.project-card ul{
+    line-height: 1.2em;
+    margin: 0.2em 0 0.5em 0 
+}
+
+#technologies{
+    color: var(--blue-10);
+    font-size: 1em;
+}

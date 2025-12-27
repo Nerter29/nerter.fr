@@ -1,0 +1,210 @@
+/*-----------------------------------------------------------Fonts----------------------------------------------------------*/
+
+
+@font-face {
+    font-family: 'Noto';
+    src: 
+    url('../assets/fonts/NotoSansLao.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'K2D';
+    src: 
+    url('../assets/fonts/K2D/K2D-Regular.ttf') format('truetype');
+}
+
+/*-----------------------------------------------------------Colors----------------------------------------------------------*/
+
+:root {
+
+    --blue-1: #0b1219;
+    --blue-2: #111922;
+    --blue-3: #15283f;
+    --blue-4: #133256;
+    --blue-5: #1d3f67;
+    --blue-6: #294d78;
+    --blue-7: #365e8e;
+    --blue-8: #4272ab;
+    --blue-9: #62a0ea;
+    --blue-10: #5794dd;
+    --blue-11: #86b8f6;
+    --blue-12: #cee3fd;
+
+    --green-1: #0d130e;
+    --green-2: #131b15;
+    --green-3: #162c1c;
+    --green-4: #173b22;
+    --green-5: #1d492b;
+    --green-6: #265736;
+    --green-7: #2e6841;
+    --green-8: #357c4d;
+    --green-9: #57e389;
+    --green-10: #4ad87f;
+    --green-11: #48d67d;
+    --green-12: #b4f1c3;
+}
+/*-----------------------------------------------------------Text----------------------------------------------------------*/
+
+
+h1, h2, h3, h4{
+    font-family: Noto;
+}
+p, li, a, #under-title{
+    font-family: K2D;
+    color: var(--blue-12); 
+}
+
+p{
+    margin : 0
+}
+
+h1{
+    background: linear-gradient(90deg, var(--blue-10), var(--green-10));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: fit-content;
+    font-size: 4em;
+    margin: 0em 0 0 0.8rem;
+    padding: 0;
+    line-height: 1em;
+}
+
+
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+
+    font-size: 2.5em;
+    color: var(--blue-11);
+    margin: 1rem 0 1rem 0;
+}
+
+h2::before,
+h2::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    border-radius: 8px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--blue-10),
+        var(--green-10)
+    );
+}
+h2::before {
+    background: linear-gradient(
+        270deg,
+        transparent,
+        var(--blue-10),
+        var(--green-10)
+    );
+}
+
+
+h3{
+    font-size: 2em;
+    color: var(--blue-12);
+    text-align: center;
+    margin : 0.5em 0 0 0
+
+}
+h4{
+    background: linear-gradient(90deg, var(--blue-11), var(--green-11));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    font-size: 2em;
+    color: var(--blue-12);
+    text-align: left;
+    margin : 0.2em 0 0 0 ;
+    width:fit-content;
+    line-height: 1.4em;
+}
+
+
+
+
+
+/*-----------------------------------------------------------Buttons----------------------------------------------------------*/
+
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-family: K2D;
+    text-align: center;
+    width: fit-content;
+    transition: background-color 0.3s ease, 
+                box-shadow 0.3s ease, 
+                transform 0.3s ease,
+                color 0.3s ease;
+}
+.button:hover{
+    transform: translateY(-3px);
+}
+.contact-button{
+    background-color: var(--blue-10);
+    color: var(--blue-1);
+    font-size: 1.2em;
+    border-radius: 6px;
+    margin: 0em 0.5em 0 0;
+    padding: 0 0.5em;
+    height: 30px;
+}
+
+.contact-button:hover{
+    background-color: var(--blue-11);
+    box-shadow: 0 8px 15px var(--blue-4);
+}
+
+.cv-button{
+    background-color: var(--green-10);
+    color: var(--green-1);
+    font-size: 1.2em;
+    border-radius: 6px;
+    margin-top: 1em;
+    padding: 0 0.5em;
+    height: 30px;
+}
+.cv-button:hover{
+    background-color: var(--green-11);
+    box-shadow: 0 8px 15px var(--green-4);
+}
+
+
+.project-button{
+    background-color: var(--blue-10);
+    color: var(--blue-1);
+    font-size: 1.2em;
+    border-radius: 6px;
+    margin: 0.5em auto;
+    padding: 0 0.5em 0.2em 0.5em;
+    height: 30px;
+}
+
+.project-button:hover{
+    background-color: var(--blue-11);
+    box-shadow: 0 8px 15px var(--blue-4);
+}
+
+
+
+
+.button-group{
+    display: flex;
+    flex-direction: row;
+    margin: 2em 0 0 0.8rem;
+}
+
+.button-icon{
+    width: 16px;
+    margin-right: 0.2em;
+}
+
