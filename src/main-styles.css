@@ -1,7 +1,12 @@
-@font-face {
+@font-face {/*Titles*/
     font-family: 'Renogare';
     src: 
     url('assets/fonts/Renogare.ttf') format('truetype');
+}
+@font-face {/*Paragraphs*/
+    font-family: 'K2D';
+    src: 
+    url('../assets/fonts/K2D/K2D-Regular.ttf') format('truetype');
 }
 
 @media (max-width: 800px){/*vertical*/

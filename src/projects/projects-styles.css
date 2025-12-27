@@ -1,8 +1,13 @@
-@font-face {
+@font-face {/*Titles*/
     font-family: 'Renogare';
     src: 
     url('../assets/fonts/Renogare.ttf') format('truetype');
     font-style: normal;
+}
+@font-face {/*Paragraphs*/
+    font-family: 'K2D';
+    src: 
+    url('../assets/fonts/K2D/K2D-Regular.ttf') format('truetype');
 }
 
 @media (max-width: 800px) { /* vertical*/
@@ -68,7 +73,6 @@
 }
 
 body {
-    font-family: 'Renogare';
     background-color: #181818;
     margin: 0;
     padding: 0;
@@ -88,21 +92,23 @@ h1 {
 }
 h2{
     color: #CCC;
-    font-family: 'Renogare';
+    font-family: 'K2D';
+    font-size: 20px;
+
     margin: 20px 10px;
     line-height: 1.2;
     letter-spacing: 0.7px;
 }
 h3 {
     color: #808080;
-    font-size: 18px;
-    font-family: 'Renogare';
+    font-size: 20px;
+    font-family: 'K2D';
     margin-right: 10px;
 }
 h4{
     color: #CCC;
     font-size: 14px;
-    font-family: 'Renogare';
+    font-family: 'K2D';
     }
 
 
@@ -118,9 +124,9 @@ section{
 
 
 .project-button {
+    font-family: Renogare;
     color: white;
     margin: 8px 0 0 8px;
-    font-family: 'Renogare';
     text-align: center;
     border-radius: 12px;
     border:none;
@@ -153,7 +159,7 @@ section{
     background-color: #cca83a;
     height: 55px;
     width: 150px;
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 10px;
 }
 .medium:hover{
@@ -181,6 +187,8 @@ section{
     justify-content: center;
     position: relative;
 }
+
+
 
 .landscape{
     border-radius: 10px;
