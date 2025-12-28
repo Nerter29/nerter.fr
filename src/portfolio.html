@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, , initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Térence Chardès</title>
     <link rel="stylesheet" href="portfolio/global.css?v=1.0.0" type="text/css">
     <link rel="stylesheet" href="portfolio/postion.css?v=1.0.0" type="text/css">
@@ -14,7 +14,7 @@
 
   <nav>
     <ol>
-      <a href="#compétences"><li>Mes compétences</li></a>
+      <a href="#competences"><li>Mes compétences</li></a>
       <a href="#projets"><li>Mes projets</li></a>
       <a href="#contact"><li>Contactez-moi</li></a>
     </ol>
@@ -22,8 +22,8 @@
   
   
   <main>   
-    <div class="welcome">
-      <section class="name-bloc">
+    <section id="welcome" class="welcome reveal-left">
+      <div class="name-bloc">
         <p>Bonjour, je suis</p>
         <h1 id="name">Térence Chardès</h1>
         <p id="under-title"><strong>Étudiant</strong> en 1ère année de BUT Informatique</p>
@@ -41,18 +41,18 @@
             <img class="button-icon" src="assets/images/portfolio/icons/linkedin.png" alt="Linkedin logo">LinkedIn
           </a>
         </div>
-      </section>
-      <section class="img-cv-bloc">
+      </div>
+      <div class="img-cv-bloc">
         <img src="assets/images/portfolio/moi-crop.jpg"  alt="photo de moi dans la nature">
         <a class="button green-button" href="assets/files-to-dl/cv-alternance.pdf" download>
           <img class="button-icon" src="assets/images/portfolio/icons/cv.png"  alt="icone d'un cv">Télécharger mon CV
         </a>
-      </section>
-    </div>
+      </div>
+    </section>
     
-    <h2 id="compétences">Mes Compétences</h2>
-    <section class="skills-bloc">
-      <div class="skill-card">
+    <h2>Mes Compétences</h2>
+    <section id="competences" class="skills-bloc">
+      <div class="skill-card reveal-left">
         <h3>Langages</h3>
         <div class="skill-list">
           <ul>
@@ -67,7 +67,7 @@
           </ul>
         </div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card reveal-bottom">
         <h3>Environnements</h3>
         <div class="skill-list">
 
@@ -81,7 +81,7 @@
           </ul>
         </div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card reveal-right">
         <h3>Logiciels</h3>
         <div class="skill-list">
           <ul>
@@ -96,10 +96,10 @@
       </div>
     </section>
 
-  <h2 id="projets">Mes Projets</h2>
+  <h2>Mes Projets</h2>
 
-  <section class="projects-bloc">
-    <div class="project-card left-position">
+  <section id="projets" class="projects-bloc">
+    <div class="project-card left-position reveal-right">
       <div class="project-text">
         <h4>Métronome Programmable</h4>
         <p id="project-unter-title">Application Android - Projet Personnel</p>
@@ -114,11 +114,13 @@
           Acceder à la page d'installation
         </a>
       </div>
-        <img class="project-media media-vertical" src="assets/images/mp/image1.png" alt="VSC icon">
-        <img class="project-media media-vertical" src="assets/images/mp/image2.png" alt="VSC icon">
+        <div class="vertical-media-bloc">
+          <img class="project-media media-vertical" src="assets/images/mp/image1.png" alt="VSC icon">
+          <img class="project-media media-vertical" src="assets/images/mp/image2.png" alt="VSC icon">
+        </div>
     </div>
 
-    <div class="project-card right-position">
+    <div class="project-card right-position reveal-left">
         <video src="assets/videos/helical.mp4" alt="video du projet helical cli" autoplay loop muted preload="auto" class="project-media media-square" width="300"></video>
 
       <div class="project-text">
@@ -138,7 +140,7 @@
       </div>
     </div>
 
-    <div class="project-card left-position">
+    <div class="project-card left-position reveal-right">
       <div class="project-text">
         <h4>Shape Survivor</h4>
         <p id="project-unter-title">Jeu Vidéo - Projet Personnel</p>
@@ -154,49 +156,48 @@
           Jouer
         </a>
       </div>
-        <div class="media-bloc">
+        <div class="horizontal-media-bloc">
           <img class="project-media media-horizontal" src="assets/images/ss/image3.png" alt="VSC icon">
           <img class="project-media media-horizontal" src="assets/images/ss/image2.png" alt="VSC icon">
-
         </div>
     </div>
-
-    <a class="button green-button" href="index.html" target="_blank">
-          Voir tous les projets
-        </a>
+    <div class="reveal-left">
+      <a class="button green-button" href="index.html" target="_blank">Voir tous les projets</a>
+    </div>
+    
     
   </section>
+  <h2>Contactez-moi</h2>
+  <section id="contact">
+    <form class="contact-form">
+      <div class="field reveal-left">
+        <label for="name">Nom</label>
+        <input type="text" name="name" required>
+      </div>
 
-  <h2 id="contact">Contactez-moi</h2>
+      <div class="field reveal-left">
+        <label for="subject">Objet</label>
+        <input type="text" name="subject" required>
+      </div>
 
-  <form class="contact-form">
-    <div class="field">
-      <label for="name">Nom</label>
-      <input type="text" name="name" required>
-    </div>
-
-    <div class="field">
-      <label for="subject">Objet</label>
-      <input type="text" name="subject" required>
-    </div>
-
-    <div class="field">
-      <label for="message">Message</label>
-      <textarea id="message" rows="5" required></textarea>
-    </div>
-
-    <a href="#" class="button green-button send-mail">Envoyer</a>
-  </form>
-
+      <div class="field reveal-left">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" required></textarea>
+      </div>
+      <div class="reveal-left">
+        <a href="#" class="button green-button send-mail">Envoyer</a>
+      </div>
+    </form>
+  </section>
   </main>
+
+  <footer class="reveal-left">
+    <p>Site web créé par Térence Chardès.</p>
+    <a href="https://github.com/Nerter29/nerter.fr" target="_blank">Voir le code source</a>
+  </footer>
 
   <script src="portfolio/logic.js"></script>
 
-  <footer>
-
-  <p>Site web créé par Térence Chardès.</p>
-  <a href="https://github.com/Nerter29/nerter.fr" target="_blank">Voir le code source</a>
-  </footer>
 </body>
 
 
