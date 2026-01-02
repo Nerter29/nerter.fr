@@ -2,8 +2,8 @@
 
 
 @media (min-width: 1000px){/*horizontal*/
-    nav{justify-content: right;}
-    ol{gap: 2em; margin: 0.3em 2em;}
+    nav{justify-content: left;    width:fit-content}
+    ol{gap: 2em; margin: 0.3em 0.5em;}
     nav li:before{font-size:1em;}
 
     main{margin: 0 auto; width:80%;}
