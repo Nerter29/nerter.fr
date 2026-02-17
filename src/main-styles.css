@@ -10,19 +10,11 @@
 }
 
 @media (max-width: 800px){/*vertical*/
-    .presentation-image-container {
-        margin-bottom: 6px;
-    }
-    article{
-        width: 200px;
 
-    }
 }
 @media (min-width: 800px){/*horizontal*/
-    article{
-        width: 200px;
-
-    }
+    
+    
 }
 
 
@@ -62,6 +54,7 @@ article{
     margin: 0 6px 30px 6px ;
     text-align: center;
     position: relative;
+    width: 200px;
 }
 
 .title-container {
@@ -85,6 +78,8 @@ article{
     display: inline-block;
     overflow: hidden;
     border-radius: 10px;
+    margin-bottom: 6px;
+
 }
 
 .presentation-image-container img {

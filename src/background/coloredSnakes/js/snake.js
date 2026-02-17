@@ -92,8 +92,10 @@ export function spawnSnakes(snakeCount, snakeList, size, canvasCells, startVeloc
     //spawn snakes at random position and random base velovity
     var startColor =Math.random() * colorPeriod;
     for(let i = 0; i < snakeCount; i++){
-        const x  =Math.round(Math.random() * canvasCells[0])
-        const y = Math.round(Math.random() * canvasCells[1])
+        const randomAngle = Math.random() * (Math.PI * 2)
+        const radius = Math.sqrt(Math.random()) * Math.min(canvasCells[0] / 5, canvasCells[1] / 5);
+        const x = Math.round(Math.cos(randomAngle) * radius + canvasCells[0] / 2)
+        const y = Math.round(Math.sin(randomAngle) * radius + canvasCells[1] / 2)
         const colorCounter = i * snakeColorDifference + startColor
 
         const velocity = randomVelocity(startVelocity)

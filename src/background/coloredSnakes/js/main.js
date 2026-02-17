@@ -12,7 +12,7 @@ const ctx = canvas.getContext('2d');
 let topBannerHeight = canvas.getBoundingClientRect().top;
 
 canvas.width = window.innerWidth;
-canvas.height = window.innerHeight - topBannerHeight - 3; // -3 because else the page has a scroll bar because it's a little bit too tall //42 : wallpaper
+canvas.height = window.innerHeight - topBannerHeight - 3; // -3 because else the page has a scroll bar because it's a little bit too tall
 
 let mouseX = canvas.width / 2
 let mouseY = canvas.height / 2 //the base mouse position is at the center of the screen
