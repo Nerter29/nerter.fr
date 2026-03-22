@@ -1,0 +1,265 @@
+/*-----------------------------------------------------------Fonts----------------------------------------------------------*/
+
+
+@font-face {/*Titles*/
+    font-family: 'Noto';
+    src: 
+    url('../assets/fonts/NotoSansLao.ttf') format('truetype');
+}
+
+@font-face {/*Paragraphs*/
+    font-family: 'K2D';
+    src: 
+    url('../assets/fonts/K2D/K2D-Regular.ttf') format('truetype');
+}
+
+/*-----------------------------------------------------------Colors----------------------------------------------------------*/
+
+:root {
+
+    --blue-1: #0b1219;
+    --blue-2: #111922;
+    --blue-3: #15283f;
+    --blue-4: #133256;
+    --blue-5: #1d3f67;
+    --blue-6: #294d78;
+    --blue-7: #365e8e;
+    --blue-8: #4272ab;
+    --blue-9: #62a0ea;
+    --blue-10: #5794dd;
+    --blue-11: #86b8f6;
+    --blue-12: #cee3fd;
+
+    --green-1: #0d130e;
+    --green-2: #131b15;
+    --green-3: #162c1c;
+    --green-4: #173b22;
+    --green-5: #1d492b;
+    --green-6: #265736;
+    --green-7: #2e6841;
+    --green-8: #357c4d;
+    --green-9: #57e389;
+    --green-10: #4ad87f;
+    --green-11: #48d67d;
+    --green-12: #b4f1c3;
+}
+
+
+/*-----------------------------------------------------------Respondive----------------------------------------------------------*/
+
+
+@media (min-width: 1000px){/*horizontal*/
+    h1{font-size: 6em;margin: 0em 0 0 0.8rem;}
+    h2{font-size: 2.5em; gap: 1.5rem;}
+    h3{font-size: 2em;}
+    h4{font-size: 2em;}
+
+    .contact-button, .green-button, .project-button{font-size: 1.4em;height: 35px;}
+
+    .button-icon{ width: 16px;}
+    .button-group{margin: 2em 0 0 0.8rem;}
+
+    p, li{
+        font-size: 1.3em;
+
+    }
+
+}
+
+@media (max-width: 1000px){/*vertical*/
+    h1{font-size: 2em; margin: 0}
+    h2{font-size: 1.5em; gap: 0.2rem; width: 280px;}
+    h3{font-size: 1.5em;}
+    h4{font-size: 1.5em;}
+    p{font-size: 0.8em;}
+
+    .contact-button, .green-button, .project-button{font-size: 0.8em;height: 20px;}
+
+    .button-icon{ width: 12px;}
+    .button-group{margin: 2em 0 0 0;}
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*-----------------------------------------------------------Text----------------------------------------------------------*/
+
+
+
+h1, h2, h3, h4{
+    font-family: Noto;
+}
+p, li, a, #under-title, label, input, textarea{
+    font-family: K2D;
+    color: var(--blue-12); 
+
+}
+
+p{
+    margin : 0;
+}
+
+h1{
+    background: linear-gradient(90deg, var(--blue-10), var(--green-10));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: fit-content;
+    padding: 0;
+    line-height: 1em;
+}
+
+
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--blue-11);
+    margin: 1rem 0 1rem 0;
+}
+
+h2::before, h2::after { /*the lines around the title*/
+    content: "";
+    flex: 1;
+    height: 2px;
+    border-radius: 8px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--blue-10),
+        var(--green-10)
+    );
+}
+h2::before { /*the gradiant of the right line is reversed*/
+    background: linear-gradient(
+        270deg,
+        transparent,
+        var(--blue-10),
+        var(--green-10)
+    );
+}
+
+
+h3{
+    color: var(--blue-12);
+    text-align: center;
+    margin : 0.5em 0 0 0
+
+}
+h4{
+    background: linear-gradient(90deg, var(--blue-11), var(--green-11));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    color: var(--blue-12);
+    text-align: left;
+    margin : 0.2em 0 0 0 ;
+    width:fit-content;
+    line-height: 1.4em;
+}
+
+
+
+
+
+/*-----------------------------------------------------------Buttons----------------------------------------------------------*/
+
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-family: K2D;
+    text-align: center;
+    width: fit-content;
+    transition: background-color 0.2s ease, 
+                box-shadow 0.2s ease, 
+                transform 0.2s ease,
+                color 0.2s ease;
+}
+.button:hover{
+    transform: translateY(-3px);
+}
+.contact-button{
+    background-color: var(--blue-10);
+    color: var(--blue-1);
+    border-radius: 6px;
+    margin: 0em 0.5em 0 0;
+    padding: 0 0.5em;
+}
+
+.contact-button:hover{
+    background-color: var(--blue-11);
+    box-shadow: 0 8px 15px var(--blue-4);
+}
+
+.green-button{
+    background-color: var(--green-10);
+    color: var(--green-1);
+    border-radius: 6px;
+    padding: 0 0.5em;
+    margin: 1em auto;
+}
+.green-button:hover{
+    background-color: var(--green-11);
+    box-shadow: 0 8px 15px var(--green-4);
+}
+
+
+.project-button{
+    background-color: var(--blue-10);
+    color: var(--blue-1);
+    border-radius: 6px;
+    margin: 0.5em auto;
+    padding: 0 0.5em 0.2em 0.5em;
+}
+
+.project-button:hover{
+    background-color: var(--blue-11);
+    box-shadow: 0 8px 15px var(--blue-4);
+}
+
+
+
+
+.button-group{
+    display: flex;
+    flex-direction: row;
+}
+
+.button-icon{
+    margin-right: 0.2em;
+}
+
+/*-----------------------------------------------------------Animations----------------------------------------------------------*/
+
+.reveal-right{
+  opacity: 0;
+  transform: translateX(2em);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+.reveal-left{
+  opacity: 0;
+  transform: translateX(-2em);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+.reveal-bottom{
+  opacity: 0;
+  transform: translateY(2em);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+.reveal-right.visible, .reveal-left.visible, .reveal-bottom.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
