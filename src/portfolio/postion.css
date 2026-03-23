@@ -8,6 +8,8 @@
 
     main{margin: 0 auto; width:80%;}
 
+    .about-me p{margin: 0.5em 8em;}
+
     .welcome{margin: 9em 0 14em 0;flex-direction: row;}
     .under-title{font-size: 1.5em; margin: 0.1em 0 0 0.8rem;}
     .img-cv-bloc > img{width: 340px;height: 340px};
@@ -27,6 +29,7 @@
 
     footer{flex-direction: row; margin: 3em 0 0.5em 0;}
 
+    footer a{font-size: 1.2em;}
 }
 @media (max-width: 1000px){/*vertical*/
     nav{justify-content: center;padding-bottom: 0.3em;}
@@ -35,6 +38,8 @@
     nav li:before{font-size:0.75em;}
 
     main{margin: 0 1em; align-items: center;}
+
+    .about-me p{margin: 0.5em 0em;}
 
     .welcome{margin: 2em 0 2em 0;flex-direction: column;}
     .under-title{font-size: 1em; margin: 0.1em 0 0 0rem;}
@@ -168,6 +173,8 @@ section{
     box-shadow: 0 14px 15px var(--green-4);
 
 }
+/*-----------------------------------------------------------About me----------------------------------------------------------*/
+
 
 /*-----------------------------------------------------------Skills----------------------------------------------------------*/
 
@@ -280,8 +287,13 @@ section{
 
 
 .project-card ul{
-    line-height: 1.5em;
+    line-height: 1.4em;
     margin: 0.2em 0 0.5em 0 
+}
+
+ul ul{
+    line-height: 0em;
+    font-size: 0.8em;
 }
 
 .technologies{
@@ -347,11 +359,20 @@ hr{
     color: var(--blue-6);
     
 }
+/*-----------------------------------------------------------Links----------------------------------------------------------*/
 
-footer a{
-    color: var(--blue-10);
+footer a, .about-me p a{
+    color: var(--green-10);
     text-decoration: underline;
+
+    transition: color 0.2s ease
+}
+footer a{
     margin-left: 0.5em;
 
+}
+
+footer a:hover, .about-me p a:hover{
+    color: var(--green-12);
 }
 
