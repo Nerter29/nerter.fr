@@ -6,7 +6,7 @@
     <div id="data"></div>
       
     <script>
-    fetch('/dashboard/')
+    fetch('/dashboard/api')
       .then(res => res.json())
       .then(data => {
         document.getElementById("data").innerText =
