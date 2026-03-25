@@ -1,11 +1,18 @@
-<h1>Dashboard</h1>
-<div id="data"></div>
+<!DOCTYPE html>
+<html lang="fr">
 
-<script>
-fetch('/dashboard/')
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("data").innerText =
-      "Uptime: " + data.uptime;
-  });
-</script>
+  <body>
+    <h1>Dashboard</h1>
+    <div id="data"></div>
+      
+    <script>
+    fetch('/dashboard/')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("data").innerText =
+          "Uptime: " + data.uptime;
+      });
+    </script>
+
+  </body>
+</html>
