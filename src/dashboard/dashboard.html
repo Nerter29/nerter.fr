@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Dashboard</title>
+      <link rel="stylesheet" href="../main-styles.css" type="text/css">
+      <link rel="stylesheet" href="dashboard-styles.css" type="text/css">
+      <link rel="icon" type="image/vnd.icon" href="../assets/images/N_Logo_zoomed.ico">
+  </head>
+
   <body>
-    <h1>Dashboard</h1>
-    <div id="data"></div>
-      
-    <script>
-    fetch('/dashboard/api')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("data").innerText =
-          "Uptime: " + data.uptime;
-      });
-    </script>
+    <header><div id="banner-container"></div></header>
+    <canvas id="snakeCanvas"></canvas>
+
+    <main>
+      <h2>Server Dashboard</h2>
+      <div class="data-group">
+        <p id="uptime"></p>
+        <p id="temperature"></p>
+        <p id="cpu"></p>
+        <p id="ram"></p>
+        <p id="services"></p>
+
+      </div>
+    </main>
+    <script src="dashboard.js"></script>
+    <script src="../logic.js"></script>
+    <script type="module" src="../background/coloredSnakes/js/main.js"></script>
 
   </body>
 </html>

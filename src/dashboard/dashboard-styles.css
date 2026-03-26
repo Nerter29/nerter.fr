@@ -1,0 +1,40 @@
+@font-face {/*Paragraphs*/
+    font-family: 'K2D';
+    src: 
+    url('../assets/fonts/K2D/K2D-Regular.ttf') format('truetype');
+}
+@font-face {/*Titles*/
+    font-family: 'Renogare';
+    src: 
+    url('assets/fonts/Renogare.ttf') format('truetype');
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+h2{
+    color: #CCC;
+    font-family: Renogare;
+    font-size: 24pt;
+    margin: 0.5em 0
+}
+
+p{
+    color: #CCC;
+    font-family: 'K2D';
+    font-size: 16pt;
+    margin: 0.3em 0 ;
+}
+
+
+.data-group{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    
+}
