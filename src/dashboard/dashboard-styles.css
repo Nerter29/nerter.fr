@@ -9,26 +9,38 @@
     url('assets/fonts/Renogare.ttf') format('truetype');
 }
 
+@media (min-width: 1000px) {/*horizontal*/
+    main{margin: 0 auto;align-items: center;}
+    h2{font-size: 24pt;}
+    p{font-size: 16pt;}
+}
+
+@media (max-width: 1000px) {/*vertical*/
+    main{margin-left: 4em;align-items: left;}
+    h2{font-size: 16pt;}
+    p{font-size: 12pt;}
+}
+
+
 main{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    
     width: fit-content;
-    margin: 0 auto;
+    
 }
 
 h2{
     color: #CCC;
     font-family: Renogare;
-    font-size: 24pt;
+    
     margin: 0.5em 0
 }
 
 p{
     color: #CCC;
     font-family: 'K2D';
-    font-size: 16pt;
-    margin: 0.3em 0 ;
+    margin: 0.2em 0 ;
 }
 
 

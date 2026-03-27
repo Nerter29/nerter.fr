@@ -13,8 +13,8 @@ function getUpTime(seconds){
 }
 
 async function loadData() {
-    const res = await fetch('/dashboard/api');
-    //const res = await fetch('https://nerter.fr/dashboard/api/');
+    //const res = await fetch('/dashboard/api');
+    const res = await fetch('https://nerter.fr/dashboard/api/');
     const data = await res.json();
 
     var seconds = parseFloat(data.uptime.split(" ")[0]);
