@@ -6,47 +6,83 @@
 @font-face {/*Titles*/
     font-family: 'Renogare';
     src: 
-    url('assets/fonts/Renogare.ttf') format('truetype');
+    url('../assets/fonts/Renogare.ttf') format('truetype');
 }
 
 @media (min-width: 1000px) {/*horizontal*/
-    main{margin: 0 auto;align-items: center;}
+    main{margin: 0 auto; align-items: center;}
     h2{font-size: 24pt;}
-    p{font-size: 16pt;}
+    
+    .data-group{padding: 1em;width: fit-content;}
+
+    #data-list{line-height: 1.7em;}
+    #services-list{padding-left: 1em; line-height: 1.7em;}
+    li{font-size: 16pt;}
+    .up::marker, .down::marker{font-size: 20pt;}
 }
 
 @media (max-width: 1000px) {/*vertical*/
-    main{margin-left: 4em;align-items: left;}
-    h2{font-size: 16pt;}
-    p{font-size: 12pt;}
+    main{margin: 0 auto; align-items: left;}
+    h2{font-size: 14pt}
+    
+    .data-group{padding: 0.4em;width: 56vw;}
+
+    #data-list{line-height: 1.2em;}
+    #services-list{padding-left: 0.5em; line-height: 1.2em;}
+    li{font-size: 8pt;}
+    .up::marker, .down::marker{font-size: 11pt;}
 }
 
 
 main{
     display: flex;
     flex-direction: column;
-    
     width: fit-content;
-    
 }
 
 h2{
     color: #CCC;
     font-family: Renogare;
-    
-    margin: 0.5em 0
+    width:fit-content;
+    margin: 0.5em auto;
+    padding: 0;
+    text-align: center;
 }
-
-p{
-    color: #CCC;
-    font-family: 'K2D';
-    margin: 0.2em 0 ;
-}
-
 
 .data-group{
     display: flex;
     flex-direction: column;
     align-items: left;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    
+
+}
+
+#data-list{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: fit-content;
+
+}
+#services-list{
+    list-style: inside disc;
     
 }
+
+.up::marker {
+    color: #44b834;
+}
+.down::marker {
+    color: #b83434;
+}
+
+li{
+    color: #CCC;
+    font-family: 'K2D';
+    margin: 0.2em 0 ;
+    width: fit-content;
+}
+
+

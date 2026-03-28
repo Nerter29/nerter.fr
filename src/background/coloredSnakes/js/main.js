@@ -33,10 +33,10 @@ if(canvas.width < 800){//for smartphones
 }
 //const delayMilliseconds = 15
 const snakeCount = 16 // 16
-const bounceFactor = 0.2
+const bounceFactor = 0.3
 const acceleration= 0.006// 0.004
 const maxSpeed = 0.7;
-const startVelocity = 0.2
+const startVelocity = 0.3
 
 const colorPeriod = 3000// number of frame necessary to make one full color loop // 100 000
 const trailLength = 100; // 100
