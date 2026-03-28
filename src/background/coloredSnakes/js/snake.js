@@ -1,6 +1,6 @@
 
 class Snake{  // ça c'est ma classe
-    constructor(x, y, size, vx, vy, acceleration, trailLength, trailIntensity, bgIntensity, trailShininess, colorCounter,
+    constructor(x, y, size, vx, vy, acceleration, maxSpeed, trailLength, trailIntensity, bgIntensity, trailShininess, colorCounter,
         trailColorDifference, colorPeriod){ 
 
         this.snakeCells = []; // head + trail
@@ -11,6 +11,7 @@ class Snake{  // ça c'est ma classe
         this.vx = vx;
         this.vy = vy;
         this.acceleration = acceleration;
+        this.maxSpeed = maxSpeed;
         
 
         //every color shit
@@ -54,6 +55,15 @@ class Snake{  // ça c'est ma classe
         let direction = [-dx / totalDistance, -dy / totalDistance];
         this.vx += direction[0] * this.acceleration * frameFactor;
         this.vy += direction[1] * this.acceleration * frameFactor
+
+        const speed = Math.sqrt(Math.pow(this.vx, 2) + Math.pow(this.vy, 2)) // norm of the 2 speeds
+        //cap the max velocity so it doedn't go too fast
+        if(speed > this.maxSpeed){
+            const decreaseMultipler = this.maxSpeed / speed;
+            this.vx *= decreaseMultipler;
+            this.vy *= decreaseMultipler;
+        }
+
     }
     bounceOnBorders(canvasSize, bounceFactor){
         if(this.x < 0 ){ this.vx *= -bounceFactor; this.x += 1}
@@ -73,10 +83,11 @@ class Snake{  // ça c'est ma classe
         }
     }
     update(ctx, frameFactor){
-        this.x += this.vx * frameFactor;
-        this.y += this.vy * frameFactor;
+        //we clamp the number between -1 and 1, because else, there would be gaps in the trail, if the speed were too big
+        this.x += Math.max(Math.min(this.vx * frameFactor, 1), -1);
+        this.y += Math.max(Math.min(this.vy * frameFactor, 1), -1);
 
-        this.moveToNextCell(ctx, Math.round(this.x), Math.round(this.y))
+        this.moveToNextCell(ctx, Math.floor(this.x), Math.floor(this.y))
     }
 }
 
@@ -87,7 +98,7 @@ function rainbowColors(cellIndex, oneColorCycle , intensity, trailColorDifferenc
     return `hsl(${hue}, ${shininess}%, ${intensity}%`
 }
 
-export function spawnSnakes(snakeCount, snakeList, size, canvasCells, startVelocity, acceleration,trailLength, trailIntensity, bgIntensity,
+export function spawnSnakes(snakeCount, snakeList, size, canvasCells, startVelocity, acceleration, maxSpeed,trailLength, trailIntensity, bgIntensity,
                             trailShininess, trailColorDifference, snakeColorDifference, colorPeriod){
     //spawn snakes at random position and random base velovity
     var startColor =Math.random() * colorPeriod;
@@ -102,7 +113,7 @@ export function spawnSnakes(snakeCount, snakeList, size, canvasCells, startVeloc
         const vx = velocity[0]
         const vy = velocity[1]
 
-        snakeList.push( new Snake(x, y, size, vx , vy, acceleration,trailLength, trailIntensity, bgIntensity,
+        snakeList.push( new Snake(x, y, size, vx , vy, acceleration, maxSpeed,trailLength, trailIntensity, bgIntensity,
             trailShininess, colorCounter, trailColorDifference, colorPeriod))
     }
 }

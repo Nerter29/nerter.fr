@@ -32,15 +32,16 @@ if(canvas.width < 800){//for smartphones
   cellSize = 4
 }
 //const delayMilliseconds = 15
-const snakeCount = 16 // 15
+const snakeCount = 16 // 16
 const bounceFactor = 0.2
-const acceleration= 0.003// 0.004
+const acceleration= 0.006// 0.004
+const maxSpeed = 0.7;
 const startVelocity = 0.2
 
 const colorPeriod = 3000// number of frame necessary to make one full color loop // 100 000
 const trailLength = 100; // 100
-const trailShininess = 0.3
-const trailIntensity = 0.15
+const trailShininess = 0.3 //0.3
+const trailIntensity = 0.15 //0.15
 let trailColorDifference = 6// the difference of colorCount beetween the head and tail of the snake // 30
 const snakeColorDifference = (colorPeriod / snakeCount) / 7// the difference of color beetween all snakes (increase the last divider to decrease it, vice versa) // 5
 
@@ -59,7 +60,7 @@ window.addEventListener('resize', () => {
 //it is usefull to blend the tail of each snake in its bg
 const bgIntensity = parseInt(getComputedStyle(document.body).backgroundColor.match(/\d+/g)[0]) / 255; 
 
-spawnSnakes(snakeCount, snakeList, cellSize, cellNumber, startVelocity, acceleration, trailLength, trailIntensity, bgIntensity,
+spawnSnakes(snakeCount, snakeList, cellSize, cellNumber, startVelocity, acceleration, maxSpeed, trailLength, trailIntensity, bgIntensity,
 trailShininess, trailColorDifference, snakeColorDifference, colorPeriod)
 
 //setInterval(animateSnakes, delayMilliseconds)
