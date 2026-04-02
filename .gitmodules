@@ -4,3 +4,6 @@
 [submodule "src/projects/web/miv-web"]
 	path = src/projects/web/miv-web
 	url = git@github.com:Nerter29/mic-viz.git
+[submodule "src/projects/web/pong"]
+	path = src/projects/web/pong
+	url = git@github.com:Nerter29/pong.git
