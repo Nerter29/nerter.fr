@@ -57,7 +57,7 @@ async function loadData() {
 
     //docker : we get the docker data of the json file and compare it with the desired services 
     var dockerServices = data.docker.split("\n");
-    var desiredServices = ["nerter.fr", "dashboard", "pong"];
+    var desiredServices = ["nerter.fr", "dashboard", "pong-server"];
 
     //to have a display name different from the docker container name, for esthetic purpose
     var serviceNamesToDisplay = ["Nerter.fr", "Dashboard-API", "Pong"];
