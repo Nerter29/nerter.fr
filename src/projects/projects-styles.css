@@ -88,6 +88,7 @@ body {
 }
 
 p{
+    color: #CCC;
     font-family: 'K2D';
 }
 
@@ -97,7 +98,6 @@ h1 {
     font-family: 'Renogare';
 }
 .description{
-    color: #CCC;
     margin: 20px 10px;
     line-height: 1.2;
 }
@@ -109,6 +109,32 @@ h1 {
 .reminder{
     color: #CCC;
     font-size: 11pt;
+}
+
+
+
+.room-selection{
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: left;
+    margin: 0.5em;
+}
+.label{
+    margin: 0 0.5em;
+}
+input{
+    width: 40px;
+    height: 20px;
+    border: #CCC 1px solid;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #CCC;
+    padding-left: 0.3em;
+}
+input::placeholder {
+
+  color: #CCC;
 }
 
 

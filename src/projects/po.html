@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, , initial-scale=1.0">
+    <title>Nerter Development</title>
+    <link rel="stylesheet" href="projects-styles.css?v=1.0.3" type="text/css">
+    <link rel="icon" type="image/vnd.icon" href="../assets/images/N_Logo_zoomed.ico">
+</head>
+
+<body>
+  <header><div id="banner-container"></div></header>
+  <canvas id="snakeCanvas"></canvas>
+
+  <main>   
+    <section class="project">
+      <h1>Pong Online</h1>
+      <img src="../assets/images/po/presentation.png" alt="" class="presentation-image" >
+      <button class="project-button big" onclick="joinRoom()">Rejoindre une Partie</button>
+      <div class="room-selection">
+        <p class="label">Identifiant de la Partie : </p>
+        <input type="text" id="roomIdInput" placeholder="auto">
+      </div> 
+      
+    </section>
+
+    <section>
+      <p class="description" id="po"></p>
+      <div class="description-image-container">
+        <video src="../assets/videos/pong.mp4" autoplay loop muted preload="auto" class="landscape"></video>
+      </div>
+      <div class="details">
+        <div class="icon-container">
+          <img src="../assets/images/platforms/web-logo-developped.png" alt="" class="icon-image" >
+        </div>
+        <p class="date" id="lastUpdateDate"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="../logic.js"></script>
+  <script type="module" src="../background/coloredSnakes/js/main.js"></script>
+  <script>
+    //script to join the game with the right room
+    
+    function joinRoom(){
+      var roomId = -1;
+      let inputRoomId = document.getElementById("roomIdInput").value;
+      if(inputRoomId != "" && !isNaN(inputRoomId)){
+        roomId = inputRoomId
+      }
+      window.open(`web/pong/index.html?room=${roomId}`, "_blank");
+    }
+  </script>
+</body>
+</html>
