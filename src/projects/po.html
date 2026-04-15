@@ -18,10 +18,15 @@
       <img src="../assets/images/po/presentation.png" alt="" class="presentation-image" >
       <button class="project-button big" onclick="joinRoom()">Rejoindre une Partie</button>
       <div class="room-selection">
-        <p class="label">Identifiant de la Salle : </p>
+        <p class="label">Identifiant de Salle : </p>
         <input type="text" id="roomIdInput" placeholder="auto">
       </div> 
-      
+      <h2>Ou Choisissez<br>une Salle : </h2>
+      <div class= "room-list" id="room-list">
+
+
+
+      </div>
     </section>
 
     <section>
@@ -40,17 +45,6 @@
 
   <script src="../logic.js"></script>
   <script type="module" src="../background/coloredSnakes/js/main.js"></script>
-  <script>
-    //script to join the game with the right room
-    
-    function joinRoom(){
-      var roomId = -1;
-      let inputRoomId = document.getElementById("roomIdInput").value;
-      if(inputRoomId != "" && !isNaN(inputRoomId)){
-        roomId = inputRoomId
-      }
-      window.open(`web/pong/index.html?room=${roomId}`, "_blank");
-    }
-  </script>
+  <script src="./pong-analyser.js">  </script>
 </body>
 </html>

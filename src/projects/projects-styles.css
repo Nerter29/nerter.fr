@@ -23,7 +23,7 @@
         margin: 0 10px 0 10px ;
         width:210px;
     }
-    .project-button{margin: 8px 0 0 0;}
+    .big, .medium, .small{margin: 8px 0 0 0;}
 
     .presentation-image {
         border-radius: 15px;
@@ -41,10 +41,11 @@
     }
 
     h1{font-size: 20pt;}
+    h2{font-size: 16pt;}
     .description{font-size: 14pt;}
     .date{text-align: center;}
 
-    
+    .room-item{flex-direction: column; width: fit-content;}
 }
 
 @media (min-width: 800px) {   /*horizontal*/
@@ -53,7 +54,7 @@
         width: 280px;
 
     }
-    .project-button{margin: 8px 0 0 8px;}
+    .big, .medium, .small{margin: 8px 0 0 8px;}
     section{
         margin: 10px 0px 0 50px ;
     }
@@ -70,8 +71,12 @@
     }
 
     h1{font-size: 20pt;}
+    h2{font-size: 16pt;}
     .description{font-size: 18pt;}
     .date{text-align: end;}
+
+    .room-item{flex-direction: row;}
+
 }
 
 body {
@@ -87,15 +92,25 @@ body {
     z-index: -1;
 }
 
-p{
+/*------------------------------Texts-----------------------------------*/
+
+
+p, ul{
     color: #CCC;
     font-family: 'K2D';
 }
 
-h1 {
+h1, h2{
     color: #CCC;
-    text-align: center;
     font-family: 'Renogare';
+}
+h1{
+    text-align: center;
+}
+h2{
+    text-align: center;
+    line-height: 1.2em;
+    margin: 1em 0 0em 0;
 }
 .description{
     margin: 20px 10px;
@@ -111,12 +126,12 @@ h1 {
     font-size: 11pt;
 }
 
-
+/*------------------------------Pong Room Selection-----------------------------------*/
 
 .room-selection{
     display: flex;
     flex-direction: row;
-    align-items: top;
+    align-items: center;
     justify-content: left;
     margin: 0.5em;
 }
@@ -133,9 +148,40 @@ input{
     padding-left: 0.3em;
 }
 input::placeholder {
-
-  color: #CCC;
+    color: #CCC;
 }
+.room-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.room-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: fit-content;
+    margin-top: 10px;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0.5em 0;
+}
+
+li{
+    margin: 0 1em;
+}
+#green{
+    color: #55c547
+}
+#red{
+    color: #c54747
+}
+
+/*------------------------------Sections-----------------------------------*/
 
 
 main{
@@ -145,16 +191,22 @@ main{
 section{
     display: flex;
     flex-direction: column;
-
 }
 
+.details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*------------------------------Buttons-----------------------------------*/
 
 .project-button {
     font-family: Renogare;
     color: white;
     
     text-align: center;
-    border-radius: 12px;
     border:none;
     line-height: 1.2;
 
@@ -164,7 +216,7 @@ section{
                 transform 0.3s ease,
                 color 0.3s ease;
 }
-.project-button:hover{
+.project-button:hover:not(.project-button:disabled) {
     transform: translateY(-3px);
 
 }
@@ -206,6 +258,27 @@ section{
     box-shadow: 0 8px 15px rgba(58, 158, 204, 0.4);
 }
 
+.mini{
+    background-color: #3a65cc;
+
+    height: 30px;
+    font-size: 10pt;
+    border-radius: 4px;
+    margin: 1em;
+    padding-top: 0.2em;
+}
+
+.project-button:disabled{
+    opacity: 0.3;
+}
+.active:hover{
+
+    background-color: #3a9ecc; 
+    box-shadow: 0 8px 15px rgba(58, 158, 204, 0.4);
+}
+
+/*------------------------------Images-----------------------------------*/
+
 
 .description-image-container{
     display: flex;
@@ -213,8 +286,6 @@ section{
     justify-content: center;
     position: relative;
 }
-
-
 
 .landscape{
     border-radius: 10px;
@@ -225,12 +296,7 @@ section{
     margin: 10px 10px 10px 10px ;
 }
 
-.details{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
+
 
 .icon-container {
     display: flex;
