@@ -114,5 +114,4 @@ async function displayPongConnectedPlayers()
   connectedPlayersText.innerHTML = `${playerNb} Joueur${pluralModifier} Connecté${pluralModifier}`
 
 }
-setInterval(displayPongConnectedPlayers, 5000)
-displayPongConnectedPlayers()
+

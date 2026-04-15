@@ -271,7 +271,7 @@ section{
 .project-button:disabled{
     opacity: 0.3;
 }
-.active:hover{
+.mini:hover:not(.project-button:disabled){
 
     background-color: #3a9ecc; 
     box-shadow: 0 8px 15px rgba(58, 158, 204, 0.4);
