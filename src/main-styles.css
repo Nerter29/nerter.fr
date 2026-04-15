@@ -34,6 +34,26 @@ body {
 a {
     text-decoration: none; /* so it doesn't underline every link*/
 }
+p, li{
+    color: #CCC;
+    font-family: 'K2D';
+
+}
+ul{
+    margin: 0;
+    padding: 0;
+    margin: 1.5em 0 0 1.5em ;
+}
+li{
+    width: fit-content;
+}
+.up::marker {
+    color: #44b834;
+}
+.down::marker {
+    color: #b83434;
+}
+
 
 
 h1 {

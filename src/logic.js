@@ -88,3 +88,31 @@ function getCommitDate(data, commit_num) {
   return `${dateArray[2]}/${dateArray[1]}/${dateArray[0]}`;
 }
 
+async function displayPongConnectedPlayers()
+{
+  var res = await fetch('https://nerter.fr/pong/api/')
+  var data = await res.json()
+
+  var connectedPlayersText = document.getElementById("connected-players")
+
+  var playerNb = 0
+  if(data.playersNum){
+    playerNb = data.playersNum
+  }
+
+  var pluralModifier = ""
+  if(playerNb >= 2){
+    pluralModifier = "s"
+  }
+  if(playerNb >= 1){
+    connectedPlayersText.classList.add("up");
+  }
+
+
+
+
+  connectedPlayersText.innerHTML = `${playerNb} Joueur${pluralModifier} Connecté${pluralModifier}`
+
+}
+setInterval(displayPongConnectedPlayers, 5000)
+displayPongConnectedPlayers()
