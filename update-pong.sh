@@ -1,3 +1,4 @@
+git reset --hard
 git pull --recurse-submodules
 
 cp src/projects/web/pong/server/* ../pong/
