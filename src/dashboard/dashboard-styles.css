@@ -68,6 +68,7 @@ h2{
 }
 #services-list{
     list-style: inside disc;
+    margin: 0;
     
 }
 
