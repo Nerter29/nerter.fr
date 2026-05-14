@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------Respondive----------------------------------------------------------*/
+/*-----------------------------------------------------------Responsive----------------------------------------------------------*/
 
 
 @media (min-width: 1000px){/*horizontal*/
@@ -15,11 +15,12 @@
     .under-title{font-size: 1.5em; margin: 0.1em 0 0 0.8rem;}
     .img-cv-bloc > img{width: 340px;height: 340px};
 
-    .skills-bloc{flex-direction: row;margin-bottom: 5em;}
-    .skill-card{width: 31%;}
-    .skill-card  li{
-        font-size: 1.5em;
-    }
+    .skills-table{margin-bottom: 5em;}
+    .skills-row{flex-direction: row; margin-bottom: 3em;}
+    .big-card{width: 50%}
+    .small-card{width: 31%;}
+    .small-card  li{font-size: 1.5em}
+    .big-card ul{padding-left: 0;}
     
     .projects-bloc{margin-bottom: 5em;}
     .project-card{width: 75%; flex-direction: row;}
@@ -48,9 +49,10 @@
     .img-cv-bloc{margin-top: 2em;}
 
     
-    .skills-bloc{flex-direction: column;margin-bottom: 1em;}
-    .skill-card{width: 280px;margin: 0 auto 1em auto;}
-    .skill-card > li{
+    .skills-row{flex-direction: column;margin-bottom: 1em;}
+    .skill-card{margin: 0 auto 1em auto;width: 280px;}
+
+    .small-card > li{
         font-size: 1.1em;
     }
 
@@ -165,7 +167,7 @@ main{
     flex-direction: column;
     justify-content: center;
 }
-section{
+section div{
     scroll-margin-top: 200px;
 }
 
@@ -199,7 +201,12 @@ section{
 
 /*-----------------------------------------------------------Skills----------------------------------------------------------*/
 
-.skills-bloc{
+.skills-table{
+    display: flex;
+    flex-direction: column;
+
+}
+.skills-row{
     display: flex;
     justify-content: space-between;
 }
@@ -213,6 +220,9 @@ section{
     box-shadow: 0 8px 15px var(--blue-4);
     
 }
+.big-card{
+    margin: 0 auto;
+}
 .skill-list{
     display: flex;
     flex-direction: row;
@@ -221,13 +231,14 @@ section{
     width: 100%;
 }
 
-.skill-card ul{
+
+.small-card ul{
     list-style: none;
     padding-left: 0;
     line-height: 2em;
 
 }
-.skill-card li{
+.small-card li{
     display: flex;
     flex-direction: row;
     align-items: center;
