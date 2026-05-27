@@ -20,7 +20,7 @@
     .big-card{width: 50%}
     .small-card{width: 31%;}
     .small-card  li{font-size: 1.5em}
-    .big-card ul{padding-left: 0;}
+    .big-card ul{padding-left: 0; margin : 1em 2em }
     
     .projects-bloc{margin-bottom: 5em;}
     .project-card{width: 75%; flex-direction: row;}
