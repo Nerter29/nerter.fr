@@ -11,7 +11,7 @@
 
     .about-me p{margin: 0.5em 8em;}
 
-    .welcome{margin: 12em 0 14em 0;flex-direction: row;}
+    .welcome{margin: 12em 0 16em 0;flex-direction: row;}
     .under-title{font-size: 1.5em; margin: 0.1em 0 0 0.8rem;}
     .img-cv-bloc > img{width: 340px;height: 340px};
 
