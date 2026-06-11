@@ -7,3 +7,6 @@
 [submodule "src/projects/web/pong"]
 	path = src/projects/web/pong
 	url = git@github.com:Nerter29/pong.git
+[submodule "src/projects/web/tbz-web"]
+	path = src/projects/web/tbz-web
+	url = git@github.com:Nerter29/tracker-de-bz.git
