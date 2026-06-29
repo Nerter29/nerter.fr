@@ -90,7 +90,7 @@ async function loadData() {
             liText += dockerStatus[dockerIndex];
             //only if the 2 first letters of the status are "up", we put the class up, in other cases, it will be "down"
             //it allows to put a color to the element with css marker
-            if(String(dockerStatus).substring(0, 2) == "Up"){
+            if(String(dockerStatus[dockerIndex]).substring(0, 2) == "Up"){
                 currentLi.classList.add("up");
             }
             else{
