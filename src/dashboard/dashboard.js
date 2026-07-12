@@ -36,8 +36,7 @@ async function loadData() {
     //this function fetches the dashboard api and extract the data from the raw json file to the html components
 
 
-    //const res = await fetch('/dashboard/api');
-    const res = await fetch('https://nerter.fr/dashboard/api/');
+    const res = await fetch('dashboard.nerter.fr/api');
     const data = await res.json();
 
     //uptime
