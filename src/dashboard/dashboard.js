@@ -12,26 +12,6 @@ function getUpTime(seconds){
     return `${days}d ${hours}h ${minutes}m ${seconds}s `
 }
 
-function getProgressBar(proportion, length){
-    const blocks = ["", "▏","▎","▍","▌","▋","▊","▉","█"];
-    const emptyChar = "░"
-    const fullChar = "█"
-
-    var bar = ""
-    var fullness = proportion * length
-    var fullBlocksNum = Math.floor(fullness)
-    for(var i = 0; i < fullBlocksNum; i++){
-        bar += fullChar;
-    }
-    blockIndex = Math.floor((fullness - fullBlocksNum) * blocks.length);
-    bar += blocks[blockIndex];
-    for(var i = 0; i < length - (fullBlocksNum + 1); i++){
-        bar += emptyChar;
-    }
-
-    return bar
-}
-
 async function loadData() {
     //this function fetches the dashboard api and extract the data from the raw json file to the html components
 
@@ -56,10 +36,10 @@ async function loadData() {
 
     //docker : we get the docker data of the json file and compare it with the desired services 
     var dockerServices = data.docker.split("\n");
-    var desiredServices = ["nerter.fr", "dashboard", "pong-server"];
+    var desiredServices = ["nerter.fr", "dashboard", "pong-server", "nextcloud"];
 
     //to have a display name different from the docker container name, for esthetic purpose
-    var serviceNamesToDisplay = ["Nerter.fr", "Dashboard-API", "Pong"];
+    var serviceNamesToDisplay = ["Nerter.fr", "Dashboard-API", "Pong", "Drive"];
 
 
     //get the names and status of the docker services
