@@ -8,6 +8,8 @@ type scorePayload = {
 }
 
 function isScorePayload(body: any): body is scorePayload {
+    if (!body || typeof body !== "object") return false;
+    
     return (
         body != null && body.token !=null && body.score != null &&
         typeof body.token === 'string' && 
