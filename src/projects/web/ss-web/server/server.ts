@@ -1,5 +1,4 @@
-import express from "express";
-const app = express();
+import express, { Request, Response } from "express";const app = express();
 const port = 3000;
 
 type scorePayload = {
@@ -26,13 +25,12 @@ app.use((req: any, res: any, next: any) => {
 });
 
 
-app.post("/api", async (req: any, res: any) => {
-    if(isScorePayload(req.body)){
-        const payload : scorePayload = req.body;
+app.post("/api", (req: Request, res: Response) => {
+    if (isScorePayload(req.body)) {
+        const payload: scorePayload = req.body;
         console.log(payload);
-        res.status(200).json(payload)
-    }
-    else {
+        res.status(200).json(payload);
+    } else {
         console.log("Payload invalide");
         res.status(400).json({ error: "Invalid payload format" });
     }

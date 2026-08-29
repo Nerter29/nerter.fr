@@ -14,7 +14,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
 });
-app.post("/api", async (req, res) => {
+app.post("/api", (req, res) => {
     if (isScorePayload(req.body)) {
         const payload = req.body;
         console.log(payload);
