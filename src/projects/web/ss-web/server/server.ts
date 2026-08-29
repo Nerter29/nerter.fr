@@ -7,8 +7,12 @@ type scorePayload = {
     score: number
 }
 
-function isScorePayload(obj : any){
-    return (typeof obj.token !== 'string' || typeof obj.score !== 'number')
+function isScorePayload(body: any): body is scorePayload {
+    return (
+        !!body && 
+        typeof body.token === 'string' && 
+        typeof body.score === 'number'
+    );
 }
 
 app.use(express.json());
@@ -26,9 +30,9 @@ app.post("/api", async (req: any, res: any) => {
         console.log(payload);
         res.status(200).json(payload)
     }
-    else{
-        console.log("fini");
-        res.status(400)
+    else {
+        console.log("Payload invalide");
+        res.status(400).json({ error: "Invalid payload format" });
     }
 });
 
