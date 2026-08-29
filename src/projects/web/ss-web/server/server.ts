@@ -11,6 +11,8 @@ function isScorePayload(obj : any){
     return (typeof obj.token !== 'string' || typeof obj.score !== 'number')
 }
 
+app.use(express.json());
+
 //so any browser can access the json
 app.use((req: any, res: any, next: any) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -26,10 +28,10 @@ app.post("/api", async (req: any, res: any) => {
     }
     else{
         console.log("fini");
-        res.status(500)
+        res.status(400)
     }
 });
 
 app.listen(port, () => {
-    console.log("Dashboard running");
+    console.log("Scoreboard running");
 });

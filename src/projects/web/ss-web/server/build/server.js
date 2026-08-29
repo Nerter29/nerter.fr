@@ -4,6 +4,7 @@ const port = 3000;
 function isScorePayload(obj) {
     return (typeof obj.token !== 'string' || typeof obj.score !== 'number');
 }
+app.use(express.json());
 //so any browser can access the json
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -17,9 +18,9 @@ app.post("/api", async (req, res) => {
     }
     else {
         console.log("fini");
-        res.status(500);
+        res.status(400);
     }
 });
 app.listen(port, () => {
-    console.log("Dashboard running");
+    console.log("Scoreboard running");
 });
