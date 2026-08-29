@@ -1,8 +1,10 @@
 import express from "express";
 const app = express();
 const port = 3000;
-function isScorePayload(obj) {
-    return (typeof obj.token !== 'string' || typeof obj.score !== 'number');
+function isScorePayload(body) {
+    return (body != null &&
+        typeof body.token === 'string' &&
+        typeof body.score === 'number');
 }
 app.use(express.json());
 //so any browser can access the json
@@ -17,8 +19,8 @@ app.post("/api", async (req, res) => {
         res.status(200).json(payload);
     }
     else {
-        console.log("fini");
-        res.status(400);
+        console.log("Payload invalide");
+        res.status(400).json({ error: "Invalid payload format" });
     }
 });
 app.listen(port, () => {
