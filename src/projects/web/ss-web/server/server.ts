@@ -9,7 +9,7 @@ type scorePayload = {
 
 function isScorePayload(body: any): body is scorePayload {
     return (
-        body != null && 
+        body != null && body.token !=null && body.score != null &&
         typeof body.token === 'string' && 
         typeof body.score === 'number'
     );

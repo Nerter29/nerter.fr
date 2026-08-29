@@ -2,7 +2,7 @@ import express from "express";
 const app = express();
 const port = 3000;
 function isScorePayload(body) {
-    return (body != null &&
+    return (body != null && body.token != null && body.score != null &&
         typeof body.token === 'string' &&
         typeof body.score === 'number');
 }
