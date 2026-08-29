@@ -1,6 +1,4 @@
-"use strict";
-const express = require("express");
-const { exec } = require("child_process");
+import express from "express";
 const app = express();
 const port = 3000;
 function isScorePayload(obj) {

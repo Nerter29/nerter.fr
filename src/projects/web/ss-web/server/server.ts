@@ -1,6 +1,4 @@
-const express = require("express");
-const { exec } = require("child_process");
-
+import express from "express";
 const app = express();
 const port = 3000;
 
@@ -14,7 +12,7 @@ function isScorePayload(obj : any){
 }
 
 //so any browser can access the json
-app.use((req, res, next) => {
+app.use((req: any, res: any, next: any) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
 });

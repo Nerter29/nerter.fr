@@ -1,2 +1,1 @@
-tsc;
-cp server.js ../../../../../../../survivor/
+cp build/server.js ../../../../../../../survivor/
