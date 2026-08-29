@@ -21,9 +21,15 @@ app.use(express.json());
 //so any browser can access the json
 app.use((req: any, res: any, next: any) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);
+    }
+
     next();
 });
-
 
 app.post("/api", (req: Request, res: Response) => {
     if (isScorePayload(req.body)) {
