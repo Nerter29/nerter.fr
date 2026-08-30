@@ -1,1 +1,0 @@
-cp build/server.js ../../../../../../survivor/
