@@ -1,4 +1,5 @@
-FROM node:20-alpine AS builder # build part for tsc
+# build part for tsc
+FROM node:20-alpine AS builder 
 WORKDIR /app
 
 COPY package*.json tsconfig.json ./
@@ -7,7 +8,8 @@ RUN npm install --only=production
 COPY . .
 RUN npx tsc
 
-FROM node:20-alpine AS runner # run part for node
+# run part for node
+FROM node:20-alpine AS runner 
 WORKDIR /app
 
 COPY package*.json ./

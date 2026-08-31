@@ -9,4 +9,4 @@ curl -X POST https://survivor.nerter.fr/api\
   -H "Content-Type: application/json" \
   -d '{"token": "abc123xyz", "score": 1700}'
 
-curl -X GET https://survivor.nerter.fr/api -H "Content-Type: application/json"
+curl -X GET https://survivor.nerter.fr/api 
