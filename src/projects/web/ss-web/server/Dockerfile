@@ -19,6 +19,8 @@ RUN apk add --no-cache python3 make g++
 COPY package*.json ./
 RUN npm ci --only=dev
 
+RUN mkdir -p data
+
 COPY --from=builder /app/build ./build
 
 EXPOSE 3000
