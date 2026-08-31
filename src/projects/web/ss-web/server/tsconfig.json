@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
-        "rootDir": ".",
-        "outDir": "server/build",
+        "rootDir": "src",
+        "outDir": "build",
         "esModuleInterop": true
     }
 }
