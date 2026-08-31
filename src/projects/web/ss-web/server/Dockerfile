@@ -3,7 +3,7 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 
 COPY package*.json tsconfig.json ./
-RUN npm install --only=production
+RUN npm ci
 
 COPY . .
 RUN npx tsc
