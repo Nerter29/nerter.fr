@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";const app = express();
 import db from './db.js';
-import { seedDifficulties } from './db-seed.js';
+import { seedDifficulties } from './db_seed.js';
 import { apiScore, difficultyDto, scoreDto, unityScore, userDto } from "./dtos.js";
 const port = 3000;
 
