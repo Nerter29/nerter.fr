@@ -86,7 +86,7 @@ function insertData(unityScore: unityScore){
 app.use(express.json());
 
 //so any browser can access the json
-app.use((req: any, res: any, next: any) => {
+/* app.use((req: any, res: any, next: any) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
@@ -96,7 +96,7 @@ app.use((req: any, res: any, next: any) => {
     }
 
     next();
-});
+}); */
 
 app.post("/api", (req: Request, res: Response) => {
     if (isScorePayload(req.body)) {
@@ -111,8 +111,13 @@ app.post("/api", (req: Request, res: Response) => {
 });
 
 app.get("/api", (req: Request, res: Response) =>{
-    const scores = agregateScores();
-    res.json(scores);
+    try {
+        const scores = agregateScores();
+        res.status(200).json(scores);
+    } catch (error) {
+        console.error("Erreur lors de la récupération des scores :", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
 });
 
 
