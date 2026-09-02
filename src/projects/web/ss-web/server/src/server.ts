@@ -68,60 +68,44 @@ function generateScoresToSend() : apiScore{
 
 
 function insertScore(unityScore: unityScore){
-    const userRows : userDto[] =  getAllFromDb("user") as userDto[];
+    const scoresRows : scoreDto[] =  getAllFromDb("score") as scoreDto[];
 
     const insertScore = db.prepare('INSERT INTO score (user_uid, difficulty_id, max_score, updated_at) VALUES (?, ?, ?, ?)');
     const updateScore = db.prepare('UPDATE score SET max_score = ?, updated_at = ? where user_uid = ?')
-    const insertUser = db.prepare('INSERT INTO user (uid, pseudo) VALUES (?, ?)');
 
-    let error = false;
-    let userExists = false;
-    for (const row of userRows){
-        if(row.uid == unityScore.token){
-            userExists = true;
-            const userScores : scoreDto[] = getALLFromDbPk("score", "user_uid", row.uid) as scoreDto[]
-            if(unityScore.score > userScores[0].max_score){
+    let scoreExists = false;
+    for (const row of scoresRows){
+        if(row.user_uid === unityScore.token && row.difficultyId == unityScore.difficultyId){
+            scoreExists = true;
+            if(unityScore.score > row.max_score){
                 updateScore.run(unityScore.score, Date.now(), unityScore.token);
             }
         }
-        if(row.pseudo == unityScore.pseudo && !userExists){
-            console.error("Pseudo Already Exists");
-            error = true;
-            break;
-        }
     }
-    if(!userExists && !error){
-        insertUser.run(unityScore.token, unityScore.pseudo);
+    if(!scoreExists){
         insertScore.run(unityScore.token, unityScore.difficultyId, unityScore.score, Date.now());
     }   
 }
 
 function insertUser(unityUser: unityUser){
-    const userRows : userDto[] =  getAllFromDb("user") as userDto[];
+    const existingPseudo = db.prepare('SELECT uid FROM user WHERE pseudo = ? AND uid != ?').get(unityUser.pseudo, unityUser.token);
+        
+    if (existingPseudo) {
+        console.log("Pseudo Already Exists");
+        return;
+    }
 
     const insertUser = db.prepare('INSERT INTO user (uid, pseudo) VALUES (?, ?)');
     const updateUser = db.prepare('UPDATE user SET pseudo = ? where uid = ?');
 
-    let error = false;
-    let userExists = false;
-    for (const row of userRows){
-        if(row.uid == unityUser.token){
-            userExists = true;
-        }
-        else if(row.pseudo == unityUser.pseudo){
-            console.error("Pseudo Already Exists");
-            error = true;
-            break;
-        }
+    let userExists = db.prepare('SELECT 1 FROM user WHERE uid = ?').get(unityUser.token) != undefined;
+
+    if (userExists) {
+        updateUser.run(unityUser.pseudo, unityUser.token);
     }
-    if(!error){
-        if(userExists){
-            updateUser.run(unityUser.pseudo, unityUser.token);
-        }
-        else{
-            insertUser.run(unityUser.token, unityUser.pseudo);
-        }
-    }   
+    else {
+        insertUser.run(unityUser.token, unityUser.pseudo);
+    }
 }
 
 app.use(express.json());
@@ -130,7 +114,8 @@ app.post("/api", (req: Request, res: Response) => {
     if (isUnityScore(req.body)) {
         const payload: unityScore = req.body;
         console.log("got score : " + payload);
-        insertScore(payload)
+        insertUser(payload);
+        insertScore(payload);
         res.status(200).json(payload);
     } else if(isUnityUser(req.body)){
         const payload: unityUser = req.body;
