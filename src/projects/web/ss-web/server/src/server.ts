@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";const app = express();
 import db from './db.js';
 import { seedDifficulties } from './db_seed.js';
-import { apiScore, difficultyDto, scoreDto, unityScore, userDto } from "./dtos.js";
+import { apiScore, difficultyDto, scoreDto, unityScore, unityUser, userDto } from "./dtos.js";
 const port = 3000;
 
 seedDifficulties();
@@ -14,17 +14,22 @@ function getALLFromDbPk(table: string, field: string, value: string | number){
     return db.prepare(`SELECT * FROM ${table} WHERE ${field} = ?`).all(value);
 }
 
-function isScorePayload(body: any): body is unityScore {
+function isUnityScore(body: any): body is unityScore {
     if (!body || typeof body !== "object") return false;
     
     return (
-        body != null && body.token !=null && body.score != null &&
-        typeof body.token === 'string' && 
-        typeof body.score === 'number'
+        body != null && body.token != null && body.score != null && body.pseudo != null && body.difficultyId != null
+    );
+}
+function isUnityUser(body: any): body is unityUser {
+    if (!body || typeof body !== "object") return false;
+    
+    return (
+        body != null && body.token != null && body.pseudo != null
     );
 }
 
-function agregateScores() : apiScore{
+function generateScoresToSend() : apiScore{
     const result : apiScore = {
         scores : [],
         difficulties : [],
@@ -62,16 +67,16 @@ function agregateScores() : apiScore{
 }
 
 
-function insertData(unityScore: unityScore){
+function insertScore(unityScore: unityScore){
     const userRows : userDto[] =  getAllFromDb("user") as userDto[];
 
     const insertScore = db.prepare('INSERT INTO score (user_uid, difficulty_id, max_score, updated_at) VALUES (?, ?, ?, ?)');
     const updateScore = db.prepare('UPDATE score SET max_score = ?, updated_at = ? where user_uid = ?')
     const insertUser = db.prepare('INSERT INTO user (uid, pseudo) VALUES (?, ?)');
 
+    let error = false;
     let userExists = false;
     for (const row of userRows){
-         // TODO add pseudo verif
         if(row.uid == unityScore.token){
             userExists = true;
             const userScores : scoreDto[] = getALLFromDbPk("score", "user_uid", row.uid) as scoreDto[]
@@ -79,35 +84,61 @@ function insertData(unityScore: unityScore){
                 updateScore.run(unityScore.score, Date.now(), unityScore.token);
             }
         }
+        if(row.pseudo == unityScore.pseudo && !userExists){
+            console.log("Pseudo Already Exists");
+            error = true;
+            break;
+        }
     }
-    if(!userExists){
-        insertUser.run(unityScore.token, "Anon"); // TODO not Anon
-        insertScore.run(unityScore.token, 2, unityScore.score, Date.now()); // TODO not 2
+    if(!userExists && !error){
+        insertUser.run(unityScore.token, unityScore.pseudo);
+        insertScore.run(unityScore.token, unityScore.difficultyId, unityScore.score, Date.now());
+    }   
+}
+
+function insertUser(unityUser: unityUser){
+    const userRows : userDto[] =  getAllFromDb("user") as userDto[];
+
+    const insertUser = db.prepare('INSERT INTO user (uid, pseudo) VALUES (?, ?)');
+    const updateUser = db.prepare('UPDATE user SET pseudo = ? where uid = ?');
+
+    let error = false;
+    let userExists = false;
+    for (const row of userRows){
+        if(row.uid == unityUser.token){
+            userExists = true;
+        }
+        else if(row.pseudo == unityUser.pseudo){
+            console.log("Pseudo Already Exists");
+            error = true;
+            break;
+        }
+    }
+    if(!error){
+        if(userExists){
+            updateUser.run(unityUser.pseudo, unityUser.token);
+        }
+        else{
+            insertUser.run(unityUser.token, unityUser.pseudo);
+        }
     }   
 }
 
 app.use(express.json());
 
-//so any browser can access the json
-/* app.use((req: any, res: any, next: any) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-
-    if (req.method === 'OPTIONS') {
-        return res.sendStatus(200);
-    }
-
-    next();
-}); */
-
 app.post("/api", (req: Request, res: Response) => {
-    if (isScorePayload(req.body)) {
+    if (isUnityScore(req.body)) {
         const payload: unityScore = req.body;
-        console.log(payload);
-        insertData(payload)
+        console.log("got score : " + payload);
+        insertScore(payload)
         res.status(200).json(payload);
-    } else {
+    } else if(isUnityUser(req.body)){
+        const payload: unityUser = req.body;
+        console.log("got user : " + payload);
+        insertUser(payload);
+        res.status(200).json(payload);
+    } 
+    else {
         console.log("Payload invalide");
         res.status(400).json({ error: "Invalid payload format" });
     }
@@ -115,7 +146,7 @@ app.post("/api", (req: Request, res: Response) => {
 
 app.get("/api", (req: Request, res: Response) =>{
     try {
-        const scores = agregateScores();
+        const scores = generateScoresToSend();
         res.status(200).json(scores);
     } catch (error) {
         console.error("Erreur lors de la récupération des scores :", error);

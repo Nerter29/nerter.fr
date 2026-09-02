@@ -18,7 +18,13 @@ export type scoreDto = {
 
 export type unityScore = {
     token : string,
-    score: number
+    pseudo : string,
+    score: number,
+    difficultyId : number
+}
+export type unityUser = {
+    token : string,
+    pseudo : string
 }
 
 export type apiScore = {
