@@ -50,9 +50,9 @@ function generateScoresToSend() : apiScore{
         result.scores.push({
             user_uid: row.user_uid,
             pseudo: users[0].pseudo as string,
-            difficultyId: row.difficultyId,
+            difficulty_id: row.difficulty_id,
             max_score: row.max_score,
-            updatedAt: row.updatedAt
+            updated_at: row.updated_at
         })
     }
 
@@ -71,21 +71,21 @@ function insertScore(unityScore: unityScore){
     const scoresRows : scoreDto[] =  getAllFromDb("score") as scoreDto[];
 
     const insertScore = db.prepare('INSERT INTO score (user_uid, difficulty_id, max_score, updated_at) VALUES (?, ?, ?, ?)');
-    const updateScore = db.prepare('UPDATE score SET max_score = ?, updated_at = ? where user_uid = ?')
+    const updateScore = db.prepare('UPDATE score SET max_score = ?, updated_at = ? where user_uid = ? AND difficulty_id = ?')
 
     let scoreExists = false;
     for (const row of scoresRows){
-        if(row.user_uid === unityScore.token && row.difficultyId == unityScore.difficultyId){
+        if(row.user_uid === unityScore.token && row.difficulty_id == unityScore.difficulty_id){
             scoreExists = true;
             if(unityScore.score > row.max_score){
-                updateScore.run(unityScore.score, Date.now(), unityScore.token);
-                console.log("updated score for difficulty " + unityScore.difficultyId + " for user " + unityScore.token);
+                updateScore.run(unityScore.score, Date.now(), unityScore.token, unityScore.difficulty_id);
+                console.log("updated score for difficulty " + unityScore.difficulty_id + " for user " + unityScore.token);
             }
         }
     }
     if(!scoreExists){
-        insertScore.run(unityScore.token, unityScore.difficultyId, unityScore.score, Date.now());
-        console.log("created score for difficulty " + unityScore.difficultyId + " for user " + unityScore.token);
+        insertScore.run(unityScore.token, unityScore.difficulty_id, unityScore.score, Date.now());
+        console.log("created score for difficulty " + unityScore.difficulty_id + " for user " + unityScore.token);
     }   
 }
 
@@ -117,7 +117,7 @@ app.use(express.json());
 app.post("/api", (req: Request, res: Response) => {
     if (isUnityScore(req.body)) {
         const payload: unityScore = req.body;
-        console.log("got score post : " + payload);
+        console.log("got score (post) : " + payload);
         insertUser(payload);
         insertScore(payload);
         res.status(200).json(payload);
@@ -136,7 +136,7 @@ app.post("/api", (req: Request, res: Response) => {
 app.get("/api", (req: Request, res: Response) =>{
     try {
         const scores = generateScoresToSend();
-        console.log("send scores");
+        console.log("sent scores (get)");
         res.status(200).json(scores);
     } catch (error) {
         console.error("Score fetching error", error);

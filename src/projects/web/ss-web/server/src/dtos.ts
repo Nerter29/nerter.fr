@@ -12,15 +12,15 @@ export type scoreDto = {
     user_uid: string,
     pseudo: string
     max_score: number,
-    difficultyId: number,
-    updatedAt: number
+    difficulty_id: number,
+    updated_at: number
 }
 
 export type unityScore = {
     token : string,
     pseudo : string,
     score: number,
-    difficultyId : number
+    difficulty_id : number
 }
 export type unityUser = {
     token : string,
