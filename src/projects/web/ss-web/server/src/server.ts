@@ -85,7 +85,7 @@ function insertScore(unityScore: unityScore){
             }
         }
         if(row.pseudo == unityScore.pseudo && !userExists){
-            console.log("Pseudo Already Exists");
+            console.error("Pseudo Already Exists");
             error = true;
             break;
         }
@@ -109,7 +109,7 @@ function insertUser(unityUser: unityUser){
             userExists = true;
         }
         else if(row.pseudo == unityUser.pseudo){
-            console.log("Pseudo Already Exists");
+            console.error("Pseudo Already Exists");
             error = true;
             break;
         }
@@ -139,7 +139,7 @@ app.post("/api", (req: Request, res: Response) => {
         res.status(200).json(payload);
     } 
     else {
-        console.log("Payload invalide");
+        console.error("Payload invalide", req.body);
         res.status(400).json({ error: "Invalid payload format" });
     }
 });
@@ -149,7 +149,7 @@ app.get("/api", (req: Request, res: Response) =>{
         const scores = generateScoresToSend();
         res.status(200).json(scores);
     } catch (error) {
-        console.error("Erreur lors de la récupération des scores :", error);
+        console.error("Score fetching error", error);
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
