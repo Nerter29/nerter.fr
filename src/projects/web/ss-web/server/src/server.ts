@@ -75,17 +75,17 @@ function insertScore(unityScore: unityScore){
 
     let scoreExists = false;
     for (const row of scoresRows){
-        if(row.user_uid === unityScore.token && row.difficulty_id == unityScore.difficulty_id){
+        if(row.user_uid === unityScore.token && row.difficulty_id == unityScore.difficultyId){
             scoreExists = true;
             if(unityScore.score > row.max_score){
-                updateScore.run(unityScore.score, Date.now(), unityScore.token, unityScore.difficulty_id);
-                console.log("updated score for difficulty " + unityScore.difficulty_id + " for user " + unityScore.token);
+                updateScore.run(unityScore.score, Date.now(), unityScore.token, unityScore.difficultyId);
+                console.log("updated score for difficulty " + unityScore.difficultyId + " for user " + unityScore.token);
             }
         }
     }
     if(!scoreExists){
-        insertScore.run(unityScore.token, unityScore.difficulty_id, unityScore.score, Date.now());
-        console.log("created score for difficulty " + unityScore.difficulty_id + " for user " + unityScore.token);
+        insertScore.run(unityScore.token, unityScore.difficultyId, unityScore.score, Date.now());
+        console.log("created score for difficulty " + unityScore.difficultyId + " for user " + unityScore.token);
     }   
 }
 

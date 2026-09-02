@@ -20,7 +20,7 @@ export type unityScore = {
     token : string,
     pseudo : string,
     score: number,
-    difficulty_id : number
+    difficultyId : number
 }
 export type unityUser = {
     token : string,
