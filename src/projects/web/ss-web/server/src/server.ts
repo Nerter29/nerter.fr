@@ -79,11 +79,13 @@ function insertScore(unityScore: unityScore){
             scoreExists = true;
             if(unityScore.score > row.max_score){
                 updateScore.run(unityScore.score, Date.now(), unityScore.token);
+                console.log("updated score for difficulty " + unityScore.difficultyId + " for user " + unityScore.token);
             }
         }
     }
     if(!scoreExists){
         insertScore.run(unityScore.token, unityScore.difficultyId, unityScore.score, Date.now());
+        console.log("created score for difficulty " + unityScore.difficultyId + " for user " + unityScore.token);
     }   
 }
 
@@ -102,9 +104,11 @@ function insertUser(unityUser: unityUser){
 
     if (userExists) {
         updateUser.run(unityUser.pseudo, unityUser.token);
+        console.log("updated user " + unityUser.token)
     }
     else {
         insertUser.run(unityUser.token, unityUser.pseudo);
+        console.log("created user " + unityUser.token)
     }
 }
 
@@ -113,13 +117,13 @@ app.use(express.json());
 app.post("/api", (req: Request, res: Response) => {
     if (isUnityScore(req.body)) {
         const payload: unityScore = req.body;
-        console.log("got score : " + payload);
+        console.log("got score post : " + payload);
         insertUser(payload);
         insertScore(payload);
         res.status(200).json(payload);
     } else if(isUnityUser(req.body)){
         const payload: unityUser = req.body;
-        console.log("got user : " + payload);
+        console.log("got user post : " + payload);
         insertUser(payload);
         res.status(200).json(payload);
     } 
@@ -132,6 +136,7 @@ app.post("/api", (req: Request, res: Response) => {
 app.get("/api", (req: Request, res: Response) =>{
     try {
         const scores = generateScoresToSend();
+        console.log("send scores");
         res.status(200).json(scores);
     } catch (error) {
         console.error("Score fetching error", error);
