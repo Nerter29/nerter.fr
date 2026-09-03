@@ -10,7 +10,6 @@ export type userDto = {
 
 export type scoreDto = {
     user_uid: string,
-    pseudo: string
     max_score: number,
     difficulty_id: number,
     updated_at: number

@@ -1,6 +1,8 @@
 ## Server 
-- ajuster le POST pour recevoir les json de type "pseudoChange"
-- il faut également que la fonction post prenne en compte les nouveaux champs "pseudo" et "difficultyId"
+- 
 ## Client
 - faire l'affichage du scoreboard (tout simplement)
 ## Unity
+- 4 chars min pour les pseudos
+- 1 post user a la premiere creation du player
+- taille après Anon buggé

@@ -46,10 +46,8 @@ function generateScoresToSend() : apiScore{
 
     const scoresRows : scoreDto[] = getAllFromDb("score") as scoreDto[];
     for (const row of scoresRows){
-        const users : userDto[] = getALLFromDbPk("user", "uid", row.user_uid) as userDto[]
         result.scores.push({
             user_uid: row.user_uid,
-            pseudo: users[0].pseudo as string,
             difficulty_id: row.difficulty_id,
             max_score: row.max_score,
             updated_at: row.updated_at

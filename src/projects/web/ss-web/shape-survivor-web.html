@@ -6,8 +6,12 @@
     <title>Unity WebGL Player | Shape Survivor</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="stylesheet" href="../../projects-styles.css">
+    <link rel="stylesheet" href="scoreboard.css">
+    <link rel="icon" type="image/vnd.icon" href="../../../assets/images/N_Logo_zoomed.ico">
   </head>
   <body>
+    <header><div id="banner-container"></div></header>  
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=1344 height=756 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -18,11 +22,12 @@
       </div>
       <div id="unity-warning"> </div>
       <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Shape Survivor</div>
       </div>
     </div>
+    <script src="scoreboard.js"></script>
+    <script src="../../../logic.js"></script>
+
     <script>
 
       var container = document.querySelector("#unity-container");
