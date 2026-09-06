@@ -114,10 +114,12 @@ function insertUser(unityUser: unityUser){
 
 dotenv.config();
 const SECRET_KEY = process.env.SHA_SECRET_KEY ?? ""
+
 export function isSignatureValid(req: any): boolean {
     const clientSignature = req.headers["x-signature"];
 
     if (!clientSignature || typeof clientSignature !== "string") {
+        console.log("key bad type")
         return false;
     }
     const bodyToSign = req.rawBody || JSON.stringify(req.body);
@@ -126,19 +128,8 @@ export function isSignatureValid(req: any): boolean {
         .createHmac("sha256", SECRET_KEY)
         .update(bodyToSign)
         .digest("hex");
-
-    try {
-        const clientBuffer = Buffer.from(clientSignature.toLowerCase(), "utf-8");
-        const expectedBuffer = Buffer.from(expectedSignature.toLowerCase(), "utf-8");
-
-        if (clientBuffer.length !== expectedBuffer.length) {
-            return false;
-        }
-
-        return crypto.timingSafeEqual(clientBuffer, expectedBuffer);
-    } catch {
-        return false;
-    }
+    console.log(`expected : ${expectedSignature.toLowerCase()} got : ${clientSignature.toLowerCase()}`)
+    return clientSignature.toLowerCase() === expectedSignature.toLowerCase();
 }
 
 app.use(express.json({
@@ -185,7 +176,7 @@ app.get("/api", (req: Request, res: Response) =>{
 });
 
 app.use((err: any, req: Request, res: Response, next: any) => {
-    console.error("Erreur interceptée par le serveur :", err.message);
+    console.error("Bad Request / JSON Parsing Error", err.message);
     res.status(400).json({ error: "Bad Request / JSON Parsing Error", details: err.message });
 });
 
