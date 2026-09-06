@@ -3,7 +3,6 @@ import db from './db.js';
 import { seedDifficulties } from './db_seed.js';
 import { apiScore, difficultyDto, scoreDto, unityScore, unityUser, userDto } from "./dtos.js";
 import crypto from "crypto";
-import dotenv from "dotenv";
 const port = 3000;
 
 seedDifficulties();
@@ -112,7 +111,6 @@ function insertUser(unityUser: unityUser){
     }
 }
 
-dotenv.config();
 const SECRET_KEY = process.env.SHA_SECRET_KEY ?? ""
 
 export function isSignatureValid(req: any): boolean {
