@@ -5,7 +5,7 @@ WORKDIR /app
 RUN apk add --no-cache python3 make g++
 
 COPY package*.json tsconfig.json ./
-RUN npm ci
+RUN npm install
 
 COPY . .
 RUN npx tsc
@@ -17,7 +17,7 @@ WORKDIR /app
 RUN apk add --no-cache python3 make g++
 
 COPY package*.json ./
-RUN npm ci --include=dev
+RUN npm install --include=dev
 
 RUN mkdir -p data
 
