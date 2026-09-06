@@ -114,21 +114,22 @@ function insertUser(unityUser: unityUser){
 
 dotenv.config();
 const SECRET_KEY = process.env.SHA_SECRET_KEY ?? ""
-function isSignatureValid(req: Request): boolean {
+export function isSignatureValid(req: any): boolean {
     const clientSignature = req.headers["x-signature"];
 
     if (!clientSignature || typeof clientSignature !== "string") {
         return false;
     }
+    const bodyToSign = req.rawBody || JSON.stringify(req.body);
 
     const expectedSignature = crypto
         .createHmac("sha256", SECRET_KEY)
-        .update(JSON.stringify(req.body))
+        .update(bodyToSign)
         .digest("hex");
 
     try {
-        const clientBuffer = Buffer.from(clientSignature, "utf-8");
-        const expectedBuffer = Buffer.from(expectedSignature, "utf-8");
+        const clientBuffer = Buffer.from(clientSignature.toLowerCase(), "utf-8");
+        const expectedBuffer = Buffer.from(expectedSignature.toLowerCase(), "utf-8");
 
         if (clientBuffer.length !== expectedBuffer.length) {
             return false;
@@ -141,10 +142,12 @@ function isSignatureValid(req: Request): boolean {
 }
 
 app.use(express.json({
-    verify: (req: any, _res, buf) => {
-        req.rawBody = buf;
-    }
-}));
+        verify: (req: any, _res, buf) => {
+            if (buf && buf.length) {
+                req.rawBody = buf.toString("utf-8");
+            }
+        }
+    }));
 app.post("/api", (req: Request, res: Response) => {
 
     if (!isSignatureValid(req)) {
@@ -165,7 +168,7 @@ app.post("/api", (req: Request, res: Response) => {
         res.status(200).json(payload);
     } 
     else {
-        console.error("Payload invalide", req.body);
+        console.error("invalid payload", req.body);
         res.status(400).json({ error: "Invalid payload format" });
     }
 });
@@ -181,6 +184,10 @@ app.get("/api", (req: Request, res: Response) =>{
     }
 });
 
+app.use((err: any, req: Request, res: Response, next: any) => {
+    console.error("Erreur interceptée par le serveur :", err.message);
+    res.status(400).json({ error: "Bad Request / JSON Parsing Error", details: err.message });
+});
 
 app.listen(port, () => {
     console.log("Scoreboard running");
