@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";const app = express();
 import db from './db.js';
 import { seedDifficulties } from './db_seed.js';
 import { apiScore, difficultyDto, scoreDto, unityScore, unityUser, userDto } from "./dtos.js";
+import crypto from "crypto";
 const port = 3000;
 
 seedDifficulties();
@@ -110,9 +111,42 @@ function insertUser(unityUser: unityUser){
     }
 }
 
+const SECRET_KEY = process.env.SHA_SECRET_KEY ?? ""
+function isSignatureValid(req: Request): boolean {
+    const clientSignature = req.headers["x-signature"];
+
+    if (!clientSignature || typeof clientSignature !== "string") {
+        return false;
+    }
+
+    const expectedSignature = crypto
+        .createHmac("sha256", SECRET_KEY)
+        .update(JSON.stringify(req.body))
+        .digest("hex");
+
+    try {
+        const clientBuffer = Buffer.from(clientSignature, "utf-8");
+        const expectedBuffer = Buffer.from(expectedSignature, "utf-8");
+
+        if (clientBuffer.length !== expectedBuffer.length) {
+            return false;
+        }
+
+        return crypto.timingSafeEqual(clientBuffer, expectedBuffer);
+    } catch {
+        return false;
+    }
+}
+
 app.use(express.json());
 
 app.post("/api", (req: Request, res: Response) => {
+
+    if (!isSignatureValid(req)) {
+        console.log("Bad Key");
+        return res.status(401).json({ error: "Invalid or missing signature" });
+    }
+
     if (isUnityScore(req.body)) {
         const payload: unityScore = req.body;
         console.log("got score (post) : " + payload);

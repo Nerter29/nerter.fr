@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "rootDir": ".",
+        "outDir": "jsBuild"
+    },
+    "files": [
+        "./scoreboard.ts"
+    ]
+}
