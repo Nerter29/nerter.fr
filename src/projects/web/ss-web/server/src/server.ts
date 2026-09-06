@@ -140,8 +140,11 @@ function isSignatureValid(req: Request): boolean {
     }
 }
 
-app.use(express.json());
-
+app.use(express.json({
+    verify: (req: any, _res, buf) => {
+        req.rawBody = buf;
+    }
+}));
 app.post("/api", (req: Request, res: Response) => {
 
     if (!isSignatureValid(req)) {
