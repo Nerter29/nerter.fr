@@ -11,10 +11,6 @@ function getAllFromDb(table: string){
     return db.prepare(`SELECT * FROM ${table}`).all()
 }
 
-function getALLFromDbPk(table: string, field: string, value: string | number){
-    return db.prepare(`SELECT * FROM ${table} WHERE ${field} = ?`).all(value);
-}
-
 function isUnityScore(body: any): body is unityScore {
     if (!body || typeof body !== "object") return false;
     
@@ -111,7 +107,7 @@ function insertUser(unityUser: unityUser){
     }
 }
 
-const SECRET_KEY = process.env.SHA_SECRET_KEY ?? ""
+const SECRET_KEY = process.env.SHA_SECRET_KEY ?? "";
 
 export function isSignatureValid(req: any): boolean {
     const clientSignature = req.headers["x-signature"];
@@ -126,7 +122,6 @@ export function isSignatureValid(req: any): boolean {
         .createHmac("sha256", SECRET_KEY)
         .update(bodyToSign)
         .digest("hex");
-    console.log(`expected : ${expectedSignature.toLowerCase()} got : ${clientSignature.toLowerCase()}`)
     return clientSignature.toLowerCase() === expectedSignature.toLowerCase();
 }
 
@@ -184,6 +179,3 @@ app.listen(port, () => {
 
 // db.prepare('DELETE FROM score').run();
 // db.prepare('DELETE FROM user').run();
-
-const rows = db.prepare(`SELECT * FROM score`).all();
-console.log(rows);
