@@ -167,10 +167,6 @@ main{
     flex-direction: column;
     justify-content: center;
 }
-section div{
-    scroll-margin-top: 200px;
-}
-
 /*-----------------------------------------------------------Welcome----------------------------------------------------------*/
 .welcome{
     display: flex;
