@@ -19,6 +19,7 @@ setDescriptionContent('/assets/images/fc/description.txt', 'fc');
 setDescriptionContent('/assets/images/miv/description.txt', 'miv');
 setDescriptionContent('/assets/images/hc/description.txt', 'hc');
 setDescriptionContent('/assets/images/po/description.txt', 'po');
+setDescriptionContent('/assets/images/mb/description.txt', 'mb');
 
 
 
@@ -51,7 +52,9 @@ else if(fileName == "ps.html"){setLastUpdateDate('particles-simulator');}
 else if(fileName == "fc.html"){setLastUpdateDate('fireworks-cli');}
 else if(fileName == "miv.html"){setLastUpdateDate('mic-viz');}
 else if(fileName == "hc.html"){setLastUpdateDate('helical-cli');}
-else if(fileName == "po.html"){setLastUpdateDate('pong');}
+else if(fileName == "po.html"){setLastUpdateDate('pong-online');}
+else if(fileName == "mb.html"){setLastUpdateDate('music-ball');}
+
 
 
 
